@@ -1,0 +1,89 @@
+snippet imr
+import React from "react";
+endsnippet
+
+snippet imra
+import React, { useState, useEffect } from "react";
+endsnippet
+
+snippet imrc "import react component" 
+import {Component} from 'react'
+endsnippet
+
+snippet imf "import from"
+import ${1} from "${2}";
+endsnippet
+
+snippet imfc "import from curls"
+import { ${1} } from "${2}";
+endsnippet
+
+snippet ts
+this.state.
+endsnippet
+
+
+snippet sl "stateless functional component"
+const ${1} = (props) => {
+	return (
+		${2}
+	);
+};
+endsnippet
+
+snippet sla "stateless with useeffect" b
+const ${1} = (props) => {
+	
+	useEffect(() => {
+		${2}
+	}, []);
+
+	return (
+		${3:<div></div>}
+	);
+};
+endsnippet
+
+snippet cls "create react class"
+class ${1} extends Component {
+	state = {
+	
+	};
+	
+	render() {
+		return (
+			
+		);
+	}
+}
+
+export default $1
+endsnippet
+
+snippet stckpoint "stack new endpoint"
+fastify.post("${1}", async (req, res) => {
+  let token = req.headers["x-access-token"];
+  let v = await _tokenHandler(token);
+
+  if (!v.auth) {
+    res.send(v);
+  } else {
+
+    }
+});
+endsnippet
+
+snippet fstpost "Fastify Post Endpoint"
+fastify.post("/${1:Endpoint}", async (request, reply) => {
+	let { ${2:data} } = request.body;
+});
+endsnippet
+
+snippet req "require node"
+const ${1} = require("$1");
+endsnippet
+
+snippet elid "Get Element By Id"
+document.getElementById("${1}");
+endsnippet
+	
