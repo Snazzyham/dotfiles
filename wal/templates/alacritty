@@ -1,0 +1,60 @@
+colors:
+  bright:
+    black: "#636666"
+    blue: "#6BA6C0"
+    cyan: "#87A1AD"
+    green: "#9BC565"
+    magenta: "#EE6D95"
+    red: "#CE5D61"
+    white: "#d4d7d6"
+    yellow: "#CDCD5F"
+  cursor:
+    cursor: "#a074c4"
+    text: "#0e1112"
+  dim:
+    black: "#2a2d2e"
+    blue: "#447F98"
+    cyan: "#607A86"
+    green: "#749E3E"
+    magenta: "#C7466E"
+    red: "#A6353A"
+    white: "#9b9e9e"
+    yellow: "#A5A638"
+  normal:
+    black: "#474a4a"
+    blue: "#519aba"
+    cyan: "#7494a3"
+    green: "#8dc149"
+    magenta: "#f55385"
+    red: "#cc3e44"
+    white: "#b8bbba"
+    yellow: "#cbcb41"
+  primary:
+    background: "#0e1112"
+    foreground: "#b8bbba"
+  selection:
+    background: "#519aba"
+    text: "#0e1112"
+cursor:
+  style: Block
+draw_bold_text_with_bright_colors: true
+font:
+  bold:
+    family: 'JetBrains Mono'
+    style: Regular
+  normal:
+    family: 'JetBrains Mono'
+    style: Regular
+  size: 12.0
+shell:
+  args:
+    - --login
+    - --init-command
+    - 'tmux attach || tmux new'
+  program: /usr/bin/fish
+window:
+  decorations: full
+  padding:
+    x: 12
+    y: 12
+  startup_mode: Maximized
