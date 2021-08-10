@@ -1,13 +1,15 @@
 source $HOME/.config/nvim/vim-plug/plugins.vim
 source $HOME/.config/nvim/plug-config/lsp-config.vim
 luafile $HOME/.config/nvim/lua/plugins/compe-config.lua
-luafile $HOME/.config/nvim/lua/plugins/formatter-config.lua
+luafile $HOME/.config/nvim/lua/plugins/autopairs-config.lua
 
 lua require'lspconfig'.gopls.setup{}
 lua require'lspconfig'.tsserver.setup{}
 lua require'lspconfig'.stylelint_lsp.setup{}
 lua require'lsp_signature'.setup()
-lua require('lualine').setup{ options = { theme = "iceberg_dark" } }
+lua require('lualine').setup{ options = { theme = "material-nvim" } }
+lua require('nvim-autopairs').setup()
+lua require('neoscroll').setup()
 
 set ttyfast
 set lazyredraw
@@ -32,7 +34,10 @@ set mouse=a
 syntax on
 ":set cursorline
 set smartindent
+set autoindent
+set cindent
 filetype indent on
+filetype plugin indent on
 
 
 " emmet key to <c-A> rather than C-Y
@@ -43,11 +48,13 @@ set splitright
 set splitbelow
 
 " COLORSCHEMES
-set background=dark
-colorscheme wal
-"let g:airline_theme='minimalist'
+let g:material_style = 'darker'
+let g:material_contrast = v:true
 highlight Pmenu ctermbg=black gui=bold
+colorscheme material
 
+"auto toggle material:
+nnoremap <leader>mm :lua require('material.functions').toggle_style()<CR>
 
 
 
@@ -75,3 +82,13 @@ nnoremap <Space><Space> <Esc>/_++_<Enter>"_c4l
 let g:prettier#autoformat = 0
 let g:prettier#autoformat_require_pragma = 0
 autocmd BufWritePre *.js,*.json,*.css,*.scss,*.less,*.graphql,*.ts,*.jsx,*.html,*.svelte Prettier
+
+" Go config 
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_operators = 1
+let g:go_fmt_autosave = 1
+let g:go_fmt_command = "goimports"
+let g:go_auto_type_info = 1

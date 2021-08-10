@@ -2,12 +2,16 @@ snippet imr
 import React from "react";
 endsnippet
 
+snippet cl "console log"
+console.log(${1})${2}
+endsnippet
+
 snippet imra
 import React, { useState, useEffect } from "react";
 endsnippet
 
 snippet imrc "import react component" 
-import {Component} from 'react'
+import { Component } from 'react'
 endsnippet
 
 snippet imf "import from"
@@ -18,17 +22,22 @@ snippet imfc "import from curls"
 import { ${1} } from "${2}";
 endsnippet
 
-snippet ts
-this.state.
-endsnippet
-
-
 snippet sl "stateless functional component"
 const ${1} = (props) => {
 	return (
 		${2}
 	);
 };
+endsnippet
+
+snippet ue "useEffect"
+useEffect(() => {
+
+}, []);
+endsnippet
+
+snippet us "useState"
+const [${1}, ${2}] = useState(${3});
 endsnippet
 
 snippet sla "stateless with useeffect" b
@@ -60,20 +69,7 @@ class ${1} extends Component {
 export default $1
 endsnippet
 
-snippet stckpoint "stack new endpoint"
-fastify.post("${1}", async (req, res) => {
-  let token = req.headers["x-access-token"];
-  let v = await _tokenHandler(token);
-
-  if (!v.auth) {
-    res.send(v);
-  } else {
-
-    }
-});
-endsnippet
-
-snippet fstpost "Fastify Post Endpoint"
+snippet fsp "Fastify Post Endpoint"
 fastify.post("/${1:Endpoint}", async (request, reply) => {
 	let { ${2:data} } = request.body;
 });
