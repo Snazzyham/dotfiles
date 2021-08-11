@@ -7,5 +7,7 @@ echo "increasing scroll speed"
 killall imwheel
 imwheel -b "45"
 xset r rate 280 70
-killall gpaste-client
+killall gpaste-daemon
 gpaste-client
+killall pa-applet
+pa-applet &
