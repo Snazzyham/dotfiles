@@ -6,7 +6,6 @@ xinput set-prop "2.4G Mouse" 322 1
 echo "increasing scroll speed"
 killall imwheel
 imwheel -b "45"
-xset r rate 280 40
-killall gpaste-daemon
+xset r rate 280 70
 killall gpaste-client
 gpaste-client
