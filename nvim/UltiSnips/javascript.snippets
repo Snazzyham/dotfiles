@@ -2,6 +2,10 @@ snippet imr
 import React from "react";
 endsnippet
 
+snippet cn
+className="${1}"
+endsnippet
+
 snippet cl "console log"
 console.log(${1})${2}
 endsnippet
@@ -67,6 +71,40 @@ class ${1} extends Component {
 }
 
 export default $1
+endsnippet
+
+snippet ed "export default"
+export default $1;
+endsnippet
+
+snippet if "if (condition)"
+if ($1) {
+	$2
+}
+endsnippet
+
+snippet ife "if (condition) else"
+if ($1) {
+	$2
+} else {
+	$3
+}
+endsnippet
+
+snippet try "try catch"
+try {
+	$1
+} catch (e) {
+	$2
+};
+endsnippet
+
+snippet switch "switch statement"
+switch ($1) {
+	case '$2':
+		$3
+		break;
+}
 endsnippet
 
 snippet fsp "Fastify Post Endpoint"
