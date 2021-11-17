@@ -52,3 +52,10 @@ spectrwm
 sqlite
 tmux
 vifm
+grim
+sway
+swappy
+slurp
+bemenu
+pywal (wal)
+blueberry

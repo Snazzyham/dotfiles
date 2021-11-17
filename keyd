@@ -1,0 +1,12 @@
+# place this in etc/keyd/default.cfg
+capslock = layer(ctrl)
+
+[ctrl]
+
+h = left
+j = down
+k = up
+l = right
+; = right
+escape = `
+1 = ~

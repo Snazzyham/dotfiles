@@ -63,7 +63,7 @@ bindsym $mod+m exec pavucontrol
 
 ################################################################################################
 bindsym Print exec grim -t jpeg
-bindsym Mod4+Shift+4 exec grim -t jpeg -g (slurp)
+bindsym Mod4+Shift+4 exec grim -g (slurp) - | swappy -f -
 
 
 focus_follows_mouse no
