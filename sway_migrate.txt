@@ -1,0 +1,66 @@
+
+# Things Not Working 
+
+[x] Light needs sudo to run - https://bbs.archlinux.org/viewtopic.php?id=254203
+[x] Trackpad sometimes not being recognized
+[] Tray not working with i3 blocks
+[x] pywal colors 
+[] power manager settings
+TODO
+
+
+x Remap Keys
+x hide cursor when typing with seat 
+x set up displays with wdisplays
+x wofi instead of rofi
+x change XDG_SESSION_TYPE to wayland, and GDK_BACKEND to wayland
+x install wl-clipboard and clipman 
+x audio buttons 
+x replace i3lock with swaylock
+x set key repeat rate
+x switch FF to wayland
+
+# choices for keyboard remapping
+
+https://github.com/wez/evremap
+https://github.com/samvel1024/kbct
+
+# clipman config
+
+exec wl-paste -t text --watch clipman store --max-items=60 --histpath="~/.local/share/clipman.json"
+bindsym $mod+h exec clipman pick --tool="wofi" --max-items=30 --histpath="~/.local/share/clipman.json"
+
+# audio button config 
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+# natural scrolling 
+   input "2:14:SynPS/2_Synaptics_TouchPad" {
+       dwt enabled
+       tap enabled
+       natural_scroll enabled
+       middle_emulation enabled
+   }
+
+This snippet is in the default Sway config. I just uncommented it and changed 2:14 to what I got when I ran swaymsg -t get_inputs (in my case, 2:7).
+
+# Screen scaling (default is 2)
+output eDP-1 scale 1.3
+
+To list connected displays use swaymsg -t get_outputs 
+
+# repeat rate 
+
+input "type:keyboard" {
+    repeat_delay 280
+    repeat_rate 70
+}
+
+
+# if GTK doesn't work 
+One issue I did run in to was that my GTK theme wasn't being used. After a bit of searching, I found the GNOME docs and they suggested I export the variable GTK_THEME to set it, and it worked!
+
+Switch firefox to use wayland 
+MOZ_ENABLE_WAYLAND=1

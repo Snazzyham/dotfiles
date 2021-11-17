@@ -7,6 +7,7 @@ endif
 
 call plug#begin("~/.config/nvim/autoload/plugged")
 Plug 'neovim/nvim-lspconfig'
+Plug 'norcalli/nvim-colorizer.lua'
 Plug 'hrsh7th/nvim-compe'
 Plug 'fatih/vim-go'
 Plug 'tpope/vim-commentary'
@@ -31,9 +32,12 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
 Plug 'mattn/emmet-vim'
 Plug 'SirVer/ultisnips'
-Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'ctrlpvim/ctrlp.vim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 Plug 'jparise/vim-graphql'
 Plug 'hoob3rt/lualine.nvim'
 Plug 'marko-cerovac/material.nvim'
 Plug 'pangloss/vim-javascript'
+Plug 'evanleck/vim-svelte', {'branch': 'main'}
 call plug#end()

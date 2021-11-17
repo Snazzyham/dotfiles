@@ -6,9 +6,13 @@
 #markup=pango
 #
 
+[startup]
+label=Key:
+interval=30
+command=./keyd.sh
+
 [caddy]
 label= 
-color=#333
 interval=60
 command=./caddy.sh
 
@@ -24,14 +28,6 @@ label=MEM
 separator=true
 interval=30
 command="$SCRIPT_DIR/memory/memory"
-
-
-
-
-[battery2]
-command=$SCRIPT_DIR/battery2/battery2
-markup=pango
-interval=30
 
 [ssid]
 command=$SCRIPT_DIR/ssid/ssid

@@ -5,11 +5,20 @@ luafile $HOME/.config/nvim/lua/plugins/autopairs-config.lua
 
 lua require'lspconfig'.gopls.setup{}
 lua require'lspconfig'.tsserver.setup{}
+lua require'lspconfig'.svelte.setup{}
 lua require'lspconfig'.stylelint_lsp.setup{}
 lua require'lsp_signature'.setup()
+lua require'lspconfig'.sqls.setup{}
 lua require('lualine').setup{ options = { theme = "material-nvim" } }
 lua require('nvim-autopairs').setup()
+"lua require'colorizer'.setup()
 lua require('neoscroll').setup()
+
+" lua <<EOF
+"   require'lspconfig'.sqlls.setup{
+"     cmd = { "/usr/bin/sql-language-server", "up", "--method", "stdio" }
+"   }
+" EOF
 
 set ttyfast
 set lazyredraw
@@ -51,10 +60,10 @@ set splitbelow
 let g:material_style = 'darker'
 let g:material_contrast = v:true
 highlight Pmenu ctermbg=black gui=bold
-colorscheme material
+set notermguicolors
+colorscheme wal
 
 "auto toggle material:
-nnoremap <leader>mm :lua require('material.functions').toggle_style()<CR>
 
 
 
@@ -76,6 +85,8 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.php,*.jsx,*.js,*.svelte"
 
 
 nnoremap <Space><Space> <Esc>/_++_<Enter>"_c4l
+
+:nnoremap <C-p> :Telescope find_files<CR>
 
 
 " vim prettier autoformat
