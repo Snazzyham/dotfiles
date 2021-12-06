@@ -7,29 +7,35 @@
 #
 
 [startup]
-label=Key:
+label= 
 interval=30
 command=./keyd.sh
 
 [caddy]
-label= 
+label= 
 interval=60
 command=./caddy.sh
 
 [docker]
-label=
+label= 
 command=./docker.sh
-color=#0db7ed
+#color=#0db7ed
 interval=30
 markup=pango
 
+[battery]
+label= 
+interval=60
+command="$SCRIPT_DIR/battery/battery"
+
 [memory]
-label=MEM
+label=
 separator=true
 interval=30
 command="$SCRIPT_DIR/memory/memory"
 
 [ssid]
+label= 
 command=$SCRIPT_DIR/ssid/ssid
 interval=60
 
@@ -40,5 +46,6 @@ interval=once
 signal=10
 
 [time]
+label= 
 command=date +"%H:%M | %d.%m.%Y"
 interval=30

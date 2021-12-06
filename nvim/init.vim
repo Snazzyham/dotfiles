@@ -9,7 +9,7 @@ lua require'lspconfig'.svelte.setup{}
 lua require'lspconfig'.stylelint_lsp.setup{}
 lua require'lsp_signature'.setup()
 lua require'lspconfig'.sqls.setup{}
-lua require('lualine').setup{ options = { theme = "material-nvim" } }
+lua require('lualine').setup{ options = { theme = "pywal" } }
 lua require('nvim-autopairs').setup()
 "lua require'colorizer'.setup()
 lua require('neoscroll').setup()
