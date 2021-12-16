@@ -244,6 +244,21 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
+# switch output mode 
+set $mode_display DIPSPLAYS: (l)aptop (m)onitor (b)oth (o)ffice
+mode "$mode_display" {
+  bindsym l output DP-2 disable; output eDP-1 enable mode 1920x1080 scale 1.0 pos 0 0
+  bindsym m output DP-2 enable mode 3840x2160 scale 1.3 pos 0 0; output eDP-1 disable
+  bindsym b output DP-2 enable mode 3840x2160 scale 1.3 pos 0 0; output eDP-1 enable mode 1920x1080 scale 1.0 pos 280 1660
+  bindsym o output eDP-1 mode 1920x1080 pos 0,1080; output HDMI-A-1 mode 1920x1080 pos 0,0
+        
+  # exit resize mode: Enter or Escape
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
+bindsym $mod+o mode "$mode_display"
+
 # Lock screen
 bindsym $mod+9 exec swaylock -i $HOME/Pictures/wallpapers/nord-arch.png
 
@@ -314,5 +329,4 @@ include /etc/sway/config.d/*
 #exec  nm-applet
 #exec_always pkill mate-power-manager; exec mate-power-manager
 #exec  pamac-tray
-exec_always pkill kanshi; exec kanshi
 exec autotiling-rs
