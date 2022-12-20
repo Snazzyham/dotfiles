@@ -2,14 +2,15 @@ source $HOME/.config/nvim/vim-plug/plugins.vim
 source $HOME/.config/nvim/plug-config/lsp-config.vim
 luafile $HOME/.config/nvim/lua/plugins/compe-config.lua
 luafile $HOME/.config/nvim/lua/plugins/autopairs-config.lua
+luafile $HOME/.config/nvim/lua/plugins/lspinstaller-config.lua
 
-lua require'lspconfig'.gopls.setup{}
-lua require'lspconfig'.tsserver.setup{}
-lua require'lspconfig'.svelte.setup{}
-lua require'lspconfig'.stylelint_lsp.setup{}
-lua require'lsp_signature'.setup()
-lua require'lspconfig'.sqls.setup{}
-lua require('lualine').setup{ options = { theme = "pywal" } }
+" lua require'lspconfig'.gopls.setup{}
+" lua require'lspconfig'.tsserver.setup{}
+" lua require'lspconfig'.svelte.setup{}
+" lua require'lspconfig'.stylelint_lsp.setup{}
+" lua require'lsp_signature'.setup()
+" lua require'lspconfig'.sqls.setup{}
+lua require('lualine').setup{ options = { theme = "auto" } }
 lua require('nvim-autopairs').setup()
 "lua require'colorizer'.setup()
 lua require('neoscroll').setup()
@@ -57,11 +58,11 @@ set splitright
 set splitbelow
 
 " COLORSCHEMES
-let g:material_style = 'darker'
-let g:material_contrast = v:true
 highlight Pmenu ctermbg=black gui=bold
-set notermguicolors
-colorscheme wal
+"set notermguicolors
+set t_Co=256
+colorscheme github_dark
+let g:github_keyword_style= "NONE"
 
 "auto toggle material:
 
@@ -76,12 +77,15 @@ colorscheme wal
 " ignore node modules folder ctrl-p
 let g:ctrlp_custom_ignore = 'node_modules'
 
+" remap control v for insert in vim wsl 
+nnoremap vp <c-v>
+
 
 " set highlight on matching parantheses 
 :hi MatchParen ctermfg=0 ctermbg=252 guifg=#ffffff guibg=#ff1100
 
 " Auto Close tags JSX
-let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.php,*.jsx,*.js,*.svelte"
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.php,*.jsx,*.js,*.svelte,*.tsx,*.ts"
 
 
 nnoremap <Space><Space> <Esc>/_++_<Enter>"_c4l
@@ -92,7 +96,7 @@ nnoremap <Space><Space> <Esc>/_++_<Enter>"_c4l
 " vim prettier autoformat
 let g:prettier#autoformat = 0
 let g:prettier#autoformat_require_pragma = 0
-autocmd BufWritePre *.js,*.json,*.css,*.scss,*.less,*.graphql,*.ts,*.jsx,*.html,*.svelte Prettier
+autocmd BufWritePre *.js,*.json,*.css,*.scss,*.less,*.graphql,*.ts,*.tsx,*.jsx,*.html,*.svelte Prettier
 
 " Go config 
 let g:go_highlight_fields = 1
