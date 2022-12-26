@@ -61,3 +61,4 @@ pywal (wal)
 blueberry
 wdisplays
 autotiling-rs
+warp-cli
