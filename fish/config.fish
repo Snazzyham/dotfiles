@@ -4,7 +4,7 @@ set -x EDITOR "vim"
 
 set -x DEV_ENV "dev"
 
-set -x PATH  /usr/local/bin /usr/bin /bin /usr/sbin /sbin:$PATH  $GOPATH/bin /usr/local/bin/solana-release/bin
+set -x PATH  /usr/local/bin /usr/bin /bin /usr/sbin /sbin:$PATH  $GOPATH/bin /usr/local/bin/solana-release/bin /home/soham/.local/lib/python3.10/site-packages /home/soham/.local/share/fnm home/soham/.fnm
 
 # Locales
 set -g -x  LC_ALL "en_US.UTF-8"  
@@ -75,4 +75,10 @@ set GOPATH '/home/soham/go'
 set PATH $GOPATH/bin $GOROOT/bin $PATH
 
 
+source ~/.cache/wal/colors.fish
+
+
 starship init fish | source
+
+
+fnm env --use-on-cd | source

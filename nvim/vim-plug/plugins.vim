@@ -53,4 +53,6 @@ Plug 'dylanaraps/wal.vim'
 Plug 'marko-cerovac/material.nvim'
 Plug 'glepnir/zephyr-nvim'
 Plug 'projekt0n/github-nvim-theme'
+Plug 'Mofiqul/dracula.nvim'
+Plug 'rose-pine/neovim'
 call plug#end()

@@ -61,7 +61,7 @@ set splitbelow
 highlight Pmenu ctermbg=black gui=bold
 "set notermguicolors
 set t_Co=256
-colorscheme github_dark
+colorscheme rose-pine
 let g:github_keyword_style= "NONE"
 
 "auto toggle material:
