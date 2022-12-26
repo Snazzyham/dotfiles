@@ -1,0 +1,7 @@
+- change keyboard shortcuts
+- add keyd 
+- change gtk theme
+- download gnome tweaks
+- download gnome app shell extension 
+- download "User Themes" extension 
+- test LSP nvim 
