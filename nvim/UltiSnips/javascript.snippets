@@ -6,6 +6,10 @@ snippet cn
 className="${1}"
 endsnippet
 
+snippet c 
+class="${1}"
+endsnippet
+
 snippet cl "console log"
 console.log(${1})${2}
 endsnippet
@@ -27,7 +31,7 @@ import { ${2} } from "${1}";
 endsnippet
 
 snippet sl "stateless functional component"
-const ${1} = (props) => {
+const ${1} = ({ }) => {
 	return (
 		${2}
 	);
@@ -42,6 +46,20 @@ endsnippet
 
 snippet us "useState"
 const [${1}, ${2}] = useState(${3});
+endsnippet
+
+snippet cs "createSignal solid"
+const [${1}, ${2}] = createSignal(${3});
+endsnippet
+
+snippet ct "createStore solid"
+const [${1}, ${2}] = createStore(${3});
+endsnippet
+
+snippet ce "createEffect solid"
+createEffect(() => {
+	${1}
+});
 endsnippet
 
 snippet sla "stateless with useeffect" b

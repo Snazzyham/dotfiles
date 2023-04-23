@@ -7,17 +7,20 @@ endif
 
 call plug#begin("~/.config/nvim/autoload/plugged")
 Plug 'neovim/nvim-lspconfig'
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install --frozen-lockfile --production',
+  \ 'for': ['javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'astro', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'hrsh7th/nvim-compe'
-Plug 'williamboman/nvim-lsp-installer'
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'fatih/vim-go'
 Plug 'tpope/vim-commentary'
 Plug 'ray-x/lsp_signature.nvim'
 Plug 'gabrielelana/vim-markdown'
 Plug 'amadeus/vim-mjml'
 Plug 'andreypopp/vim-colors-plain'
-Plug 'prettier/vim-prettier'
 Plug 'karb94/neoscroll.nvim'
 Plug 'windwp/nvim-autopairs'
 Plug 'alvan/vim-closetag'
@@ -43,6 +46,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 " colorschemes 
 Plug 'tomasr/molokai'
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'dylanaraps/wal.vim'
 Plug 'dikiaap/minimalist'
 Plug 'joshdick/onedark.vim'
