@@ -1,19 +1,21 @@
 set -x GOPATH $HOME/go
 
-set -x EDITOR "vim"
+set -x EDITOR vim
 
-set -x DEV_ENV "dev"
+set -x DEV_ENV dev
 
-set -x PATH  /usr/local/bin /usr/bin /bin /usr/sbin /sbin:$PATH  $GOPATH/bin /usr/local/bin/solana-release/bin /home/soham/.local/lib/python3.10/site-packages /home/soham/.local/share/fnm home/soham/.fnm
+set -x PATH /usr/local/bin /usr/bin /bin /usr/sbin /sbin:$PATH $GOPATH/bin /usr/local/bin/solana-release/bin /home/soham/.local/lib/python3.10/site-packages /home/soham/.local/bin
 
 # Locales
-set -g -x  LC_ALL "en_US.UTF-8"  
+set -g -x LC_ALL "en_US.UTF-8"
 set -g -x LANG "en_US.UTF-8"
 
 # Aliases 
 
 
 alias vplug='nvim +PlugInstall +qall'
+alias ff='nvim +"Telescope find_files"'
+alias fo='nvim +"Telescope live_grep"'
 alias n='vifm'
 alias vold='/usr/bin/vim'
 alias vim='nvim'
@@ -71,14 +73,13 @@ alias bp="ssh soham@34.92.69.85"
 
 # GoLang
 set GOROOT '/home/soham/.go'
-set GOPATH '/home/soham/go'
+set GOPATH /home/soham/go
 set PATH $GOPATH/bin $GOROOT/bin $PATH
 
 
-source ~/.cache/wal/colors.fish
+source ~/.config/fish/themes/kanagawa.fish
 
 
 starship init fish | source
 
 
-fnm env --use-on-cd | source
