@@ -17,3 +17,5 @@ Maybe I'll put the fonts down here as a reminder to myself.
 - Inter
 - Geist
 - JetBrains Mono
+
+Also, `keyd` is a bit different. Add the contents of `keyd.conf` to `/etc/keyd/default.conf` after installing `keyd`.
