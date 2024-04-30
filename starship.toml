@@ -33,7 +33,7 @@ ahead = "⇡${count}"
 behind = "⇣${count}"
 deleted = "x"
 diverged = "⇕⇡${ahead_count}⇣${behind_count}"
-style = "dimgray"
+style = "cambridgeblue"
 
 # Last param in the first line/row
 [cmd_duration]
@@ -105,6 +105,7 @@ symbol = " "
 
 [git_branch]
 symbol = " "
+style = "bold cambridgeblue"
 
 [golang]
 symbol = " "
@@ -156,12 +157,12 @@ mauve = "#AAAAAA"
 red = "#AAAAAA"
 maroon = "#AAAAAA"
 peach = "#AAAAAA"
-yellow = "#AAAAAA"
+yellow = "#DDD8BB"
 green = "#AAAAAA"
 teal = "#AAAAAA"
 sky = "#AAAAAA"
 sapphire = "#AAAAAA"
-blue = "#AAAAAA"
+blue = "#2D4F67"
 lavender = "#AAAAAA"
 text = "#CCCCCC"
 subtext1 = "#CCCCCC"
