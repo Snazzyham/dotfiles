@@ -1,2 +1,0 @@
-#! /bin/bash
-grim -t jpeg -g "$(slurp)" - | swappy -f -

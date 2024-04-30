@@ -2,24 +2,16 @@ source $HOME/.config/nvim/vim-plug/plugins.vim
 source $HOME/.config/nvim/plug-config/lsp-config.vim
 luafile $HOME/.config/nvim/lua/plugins/compe-config.lua
 luafile $HOME/.config/nvim/lua/plugins/autopairs-config.lua
-luafile $HOME/.config/nvim/lua/plugins/lspinstaller-config.lua
+luafile $HOME/.config/nvim/lua/plugins/mason.lua
+luafile $HOME/.config/nvim/lua/plugins/treesitter.lua
+" luafile $HOME/.config/nvim/lua/plugins/formatter.lua
+luafile $HOME/.config/nvim/lua/plugins/conform.lua
+luafile $HOME/.config/nvim/lua/plugins/comment.lua
 
-" lua require'lspconfig'.gopls.setup{}
-" lua require'lspconfig'.tsserver.setup{}
-" lua require'lspconfig'.svelte.setup{}
-" lua require'lspconfig'.stylelint_lsp.setup{}
-" lua require'lsp_signature'.setup()
-" lua require'lspconfig'.sqls.setup{}
+
 lua require('lualine').setup{ options = { theme = "auto" } }
 lua require('nvim-autopairs').setup()
-"lua require'colorizer'.setup()
-lua require('neoscroll').setup()
 
-" lua <<EOF
-"   require'lspconfig'.sqlls.setup{
-"     cmd = { "/usr/bin/sql-language-server", "up", "--method", "stdio" }
-"   }
-" EOF
 
 set ttyfast
 set lazyredraw
@@ -33,16 +25,13 @@ set incsearch           " highlight search when typing
 set hlsearch            " highlight search for phrases
 set smarttab            " use shiftwidth to tab at line beginning 
 inoremap jk <esc>
-"autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-"Set relative number, then toggle relative with X-/
-		set number relativenumber
-"set showmatch
+set number relativenumber
 set title
 set nobackup
 set noswapfile
 set mouse=a
 syntax on
-":set cursorline
+"set cursorline
 set smartindent
 set autoindent
 set cindent
@@ -58,14 +47,25 @@ set splitright
 set splitbelow
 
 " COLORSCHEMES
-highlight Pmenu ctermbg=black gui=bold
+" highlight Pmenu ctermbg=black gui=bold
 "set notermguicolors
 set t_Co=256
-colorscheme rose-pine
+colorscheme zenbones
+set background=dark
+
+" theme specific 
+"
 let g:github_keyword_style= "NONE"
 
-"auto toggle material:
+let g:zenbones_compat = 1
 
+let g:onedark_config = {
+      \ 'style': 'darker'
+\}
+
+if (has("termguicolors"))
+  set termguicolors
+endif
 
 
 " REMAP VIM SWITCH BETWEEN SPLITS
@@ -85,18 +85,32 @@ nnoremap vp <c-v>
 :hi MatchParen ctermfg=0 ctermbg=252 guifg=#ffffff guibg=#ff1100
 
 " Auto Close tags JSX
-let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.php,*.jsx,*.js,*.svelte,*.tsx,*.ts"
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.php,*.jsx,*.js,*.svelte,*.tsx,*.ts,*.astro"
 
 
 nnoremap <Space><Space> <Esc>/_++_<Enter>"_c4l
 
 :nnoremap <C-p> :Telescope find_files<CR>
+:nnoremap <C-o> :Telescope live_grep<CR>
 
+:nnoremap <C-b> :GitBlameToggle<CR>
 
-" vim prettier autoformat
-let g:prettier#autoformat = 0
-let g:prettier#autoformat_require_pragma = 0
-autocmd BufWritePre *.js,*.json,*.css,*.scss,*.less,*.graphql,*.ts,*.tsx,*.jsx,*.html,*.svelte Prettier
+" -- to be replaced with conform -- 
+" autoformat on save with Prettier only on these files
+" let g:prettier#autoformat = 0
+" autocmd BufWritePre *.js,*ts,*.tsx,*.jsx,*.json,*.css,*.scss,*.less,*.graphql Prettier
+
+" autoformat svelte, astro on save
+" autocmd BufWritePre *.astro,*.svelte,*.go lua vim.lsp.buf.format()
+
+" for conform 
+
+function! FormatCode()
+  :Format
+endfunction
+
+nnoremap <Space>p :call FormatCode()<CR>
+
 
 " Go config 
 let g:go_highlight_fields = 1

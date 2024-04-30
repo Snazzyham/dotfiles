@@ -1,5 +1,0 @@
-sql-language-server
-typescript-language-server
-sirv-cli
-vite
-prettier

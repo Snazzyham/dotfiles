@@ -1,19 +1,50 @@
 set -x GOPATH $HOME/go
 
-set -x EDITOR "vim"
+set -x EDITOR nvim
+set -x VISUAL nvim
 
-set -x DEV_ENV "dev"
+set -x DEV_ENV dev
 
-set -x PATH  /usr/local/bin /usr/bin /bin /usr/sbin /sbin:$PATH  $GOPATH/bin /usr/local/bin/solana-release/bin /home/soham/.local/lib/python3.10/site-packages /home/soham/.local/share/fnm home/soham/.fnm
+set -x PATH /usr/local/bin /usr/bin /bin /usr/sbin /sbin:$PATH $GOPATH/bin /usr/local/bin/solana-release/bin /home/soham/.local/lib/python3.10/site-packages /home/soham/.local/bin
+
+
+set -x LS_COLORS "di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30"
+
+
+# Add ~/.local/bin to PATH
+if test -d ~/.local/bin
+    if not contains -- ~/.local/bin $PATH
+        set -p PATH ~/.local/bin
+    end
+end
+
+# Add depot_tools to PATH
+if test -d ~/Applications/depot_tools
+    if not contains -- ~/Applications/depot_tools $PATH
+        set -p PATH ~/Applications/depot_tools
+    end
+end
 
 # Locales
-set -g -x  LC_ALL "en_US.UTF-8"  
+set -g -x LC_ALL "en_US.UTF-8"
 set -g -x LANG "en_US.UTF-8"
+
+set fish_greeting ""
+
+source ~/.config/fish/themes/kanagawabones.fish
+
+#fish_config theme choose "Rosé Pine Dawn"
+#fish_config theme choose "Catppuccin Latte" 
+#fish_config theme choose "Catppuccin Macchiato" 
 
 # Aliases 
 
+alias cat='bat --style header --style snip --style changes --style header'
+[ ! -x /usr/bin/yay ] && [ -x /usr/bin/paru ] && alias yay='paru'
 
 alias vplug='nvim +PlugInstall +qall'
+alias ff='nvim +"Telescope find_files"'
+alias fo='nvim +"Telescope live_grep"'
 alias n='vifm'
 alias vold='/usr/bin/vim'
 alias vim='nvim'
@@ -28,9 +59,9 @@ alias fnd='open -a "Finder"'
 alias prev='open -a "Preview"'
 alias md="open -a 'MacDown'"
 alias edot="vim ~/dotfiles/"
-alias dl='cd ~/Downloads/'
-alias ls='ls -a --color=auto'
-alias l="ls -l --color=auto"
+alias ls='ls -a --color'
+alias l="ls -l"
+alias i='wezterm imgcat'
 alias strd="sudo systemctl start docker.service"
 alias stpd="sudo systemctl stop docker.service"
 alias wind="cd /mnt/c/Users/soham"
@@ -71,14 +102,23 @@ alias bp="ssh soham@34.92.69.85"
 
 # GoLang
 set GOROOT '/home/soham/.go'
-set GOPATH '/home/soham/go'
+set GOPATH /home/soham/go
 set PATH $GOPATH/bin $GOROOT/bin $PATH
 
 
-source ~/.cache/wal/colors.fish
 
+
+
+# pnpm
+set -gx PNPM_HOME "/home/soham/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
+#
 
 starship init fish | source
 
-
-fnm env --use-on-cd | source
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
