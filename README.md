@@ -19,3 +19,5 @@ Maybe I'll put the fonts down here as a reminder to myself.
 - JetBrains Mono
 
 Also, `keyd` is a bit different. Add the contents of `keyd.conf` to `/etc/keyd/default.conf` after installing `keyd`.
+
+On KDE, install [Kwin Rectangle](https://github.com/acristoffers/kwin-rectangle), then copy over keyboard shortcuts
