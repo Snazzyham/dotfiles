@@ -54,6 +54,7 @@ SETUVAR fish_pager_color_selected_background:\x1d
 SETUVAR fish_pager_color_selected_completion:\x1d
 SETUVAR fish_pager_color_selected_description:\x1d
 SETUVAR fish_pager_color_selected_prefix:\x1d
+SETUVAR fish_user_paths:/home/soham/\x2esst/bin
 SETUVAR nvm_default_packages:pnpm\x1eyarn\x1eprettier
 SETUVAR nvm_default_version:latest
 SETUVAR pure_begin_prompt_with_current_directory:true

@@ -31,11 +31,14 @@ set -g -x LANG "en_US.UTF-8"
 
 set fish_greeting ""
 
-source ~/.config/fish/themes/kanagawabones.fish
+#! Themes
+
+# source ~/.config/fish/themes/kanagawabones.fish
 
 #fish_config theme choose "Rosé Pine Dawn"
 #fish_config theme choose "Catppuccin Latte" 
 #fish_config theme choose "Catppuccin Macchiato" 
+
 
 # Aliases 
 
@@ -118,7 +121,11 @@ end
 #
 
 starship init fish | source
+source ~/.config/fish/functions/get_color.fish
 
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
+
+# sst
+fish_add_path /home/soham/.sst/bin

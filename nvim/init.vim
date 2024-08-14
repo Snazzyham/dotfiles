@@ -49,18 +49,18 @@ set splitbelow
 " COLORSCHEMES
 " highlight Pmenu ctermbg=black gui=bold
 "set notermguicolors
-set t_Co=256
-colorscheme zenbones
+" set t_Co=256
+colorscheme github_dark_tritanopia
 set background=dark
 
 " theme specific 
 "
 let g:github_keyword_style= "NONE"
 
-let g:zenbones_compat = 1
+let g:one_light_compat = 1
 
 let g:onedark_config = {
-      \ 'style': 'darker'
+      \ 'style': 'warmer'
 \}
 
 if (has("termguicolors"))
@@ -85,7 +85,7 @@ nnoremap vp <c-v>
 :hi MatchParen ctermfg=0 ctermbg=252 guifg=#ffffff guibg=#ff1100
 
 " Auto Close tags JSX
-let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.php,*.jsx,*.js,*.svelte,*.tsx,*.ts,*.astro"
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.php,*.jsx,*.js,*.svelte,*.tsx,*.ts"
 
 
 nnoremap <Space><Space> <Esc>/_++_<Enter>"_c4l

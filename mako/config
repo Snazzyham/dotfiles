@@ -1,0 +1,16 @@
+font=Inter V 14
+width=300
+height=80
+border-size=2
+padding=5
+default-timeout=2500
+
+# Colors
+
+background-color=#282C34
+text-color=#ABB2BF
+border-color=#E5C07B
+progress-color=over #E06C75
+
+[urgency=high]
+border-color=#E06C75

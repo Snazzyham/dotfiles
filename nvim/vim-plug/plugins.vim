@@ -32,21 +32,17 @@ Plug 'hoob3rt/lualine.nvim'
 " colorschemes 
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'dylanaraps/wal.vim'
+Plug 'navarasu/onedark.nvim'
 Plug 'tiagovla/tokyodark.nvim'
 Plug 'tanvirtin/monokai.nvim'
 Plug 'tomasiser/vim-code-dark'
-Plug 'nyoom-engineering/oxocarbon.nvim'
 Plug 'dylanaraps/wal.vim'
 Plug 'projekt0n/github-nvim-theme'
 Plug 'Mofiqul/dracula.nvim'
 Plug 'rebelot/kanagawa.nvim'
-Plug 'Abstract-IDE/Abstract-cs'
-Plug 'rockerBOO/boo-colorscheme-nvim'
-Plug 'kvrohit/substrata.nvim'
 Plug 'rose-pine/neovim'
-Plug 'olivercederborg/poimandres.nvim'
 Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
-Plug 'neanias/everforest-nvim', { 'branch': 'main' }
 Plug 'mcchrish/zenbones.nvim'
+Plug 'bluz71/vim-moonfly-colors', { 'as': 'moonfly' }
 Plug 'rktjmp/lush.nvim'
 call plug#end()

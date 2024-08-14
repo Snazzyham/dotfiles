@@ -2,14 +2,13 @@ require("conform").setup({
   formatters_by_ft = {
     lua = { "stylua" },
     -- Use a sub-list to run only the first available formatter
-    javascript = { { "biome", "prettier" } },
-    typescript = { { "biome", "prettier" } },
-    typescriptreact = { { "biome", "prettier" } },
-    javascriptreact = { { "biome", "prettier" } },
-    python = { "yapf"},
+    javascript = { "prettier" },
+    typescript = { "prettier" },
+    typescriptreact = { "prettier" },
+    javascriptreact = { "prettier" },
+    python = { "yapf" },
     go = { "gofmt" },
-    astro = { { "prettier" } },
-    svelte = { { "prettier" } },
+    astro = { "prettier" }
   },
   format_on_save = {
     timeout_ms = 500,
@@ -37,4 +36,3 @@ vim.api.nvim_create_user_command("Format", function(args)
   end
   require("conform").format({ async = true, lsp_fallback = true, range = range })
 end, { range = true })
-

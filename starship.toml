@@ -1,9 +1,9 @@
-palette = "kanagawabones"
+palette="onedark"
 
 ## FIRST LINE/ROW: Info & Status
 # First param ─┌
 [username]
-format = " [╭─$user]($style)@"
+format = " [$user]($style) at "
 show_always = true
 style_root = "bold red"
 style_user = "bold red"
@@ -12,16 +12,16 @@ style_user = "bold red"
 [hostname]
 disabled = false
 format = "[$hostname]($style) in "
-ssh_only = false
+ssh_only = true
 style = "bold dimmed cambridgeblue"
 trim_at = "-"
 
 # Third param
 [directory]
-style = "pearl"
+style = "lavender"
 truncate_to_repo = true
 truncation_length = 0
-truncation_symbol = "repo: "
+truncation_symbol = "  "
 
 # Fourth param
 [sudo]
@@ -39,7 +39,8 @@ style = "cambridgeblue"
 [cmd_duration]
 disabled = false
 format = "took [$duration]($style)"
-min_time = 1
+min_time = 1000
+style = "text"
 
 
 ## SECOND LINE/ROW: Prompt
@@ -69,13 +70,13 @@ threshold = 80
 [time]
 disabled = true
 format = " 🕙 $time($style)\n"
-style = "bright-white"
+style = "pearl"
 time_format = "%T"
 
 # Prompt: param 2
 [character]
 error_symbol = " [×](bold red)"
-success_symbol = " [╰─λ](bold red)"
+success_symbol = " [❯](bold red)"
 
 # SYMBOLS
 [status]
@@ -129,7 +130,7 @@ symbol = " "
 symbol = " "
 
 [package]
-symbol = " "
+symbol = "󰏖 "
 
 [perl]
 symbol = " "
@@ -179,3 +180,66 @@ crust = "#FFFFFF"
 dimgray = "#727169"
 pearl = "#DDD8BB"
 cambridgeblue = "#7AA89F"
+
+
+[palettes.onelight]
+rosewater = "#AAAAAA"
+flamingo = "#AAAAAA"
+pink = "#AAAAAA"
+mauve = "#AAAAAA"
+red = "#E45649"
+maroon = "#AAAAAA"
+peach = "#AAAAAA"
+yellow = "#DDD8BB"
+green = "#AAAAAA"
+teal = "#AAAAAA"
+sky = "#AAAAAA"
+sapphire = "#AAAAAA"
+blue = "#2D4F67"
+lavender = "#AAAAAA"
+text = "#696C77"
+subtext1 = "#CCCCCC"
+subtext0 = "#CCCCCC"
+overlay2 = "#CCCCCC"
+overlay1 = "#CCCCCC"
+overlay0 = "#CCCCCC"
+surface2 = "#CCCCCC"
+surface1 = "#CCCCCC"
+surface0 = "#CCCCCC"
+base = "#FFFFFF"
+mantle = "#FFFFFF"
+crust = "#FFFFFF"
+dimgray = "#727169"
+pearl = "#383A42"
+cambridgeblue = "#0184BC"
+
+[palettes.onedark]
+rosewater = "#E06C75"  # Red color
+flamingo = "#E5C07B"   # Yellow color
+pink = "#C678DD"       # Mauve color
+mauve = "#61AFEF"      # Blue color
+red = "#E06C75"
+maroon = "#BE5046"     # Darker red
+peach = "#D19A66"      # Orange color
+yellow = "#E5C07B"
+green = "#98C379"
+teal = "#56B6C2"       # Cyan color
+sky = "#61AFEF"
+sapphire = "#61AFEF"
+blue = "#61AFEF"
+lavender = "#C678DD"
+text = "#ABB2BF"
+subtext1 = "#828997"
+subtext0 = "#5C6370"
+overlay2 = "#3E4451"
+overlay1 = "#2C323C"
+overlay0 = "#21252B"
+surface2 = "#3E4451"
+surface1 = "#2C323C"
+surface0 = "#21252B"
+base = "#282C34"
+mantle = "#21252B"
+crust = "#1C1E26"
+dimgray = "#5C6370"
+pearl = "#3E4451"
+cambridgeblue = "#61AFEF"

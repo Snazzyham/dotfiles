@@ -10,11 +10,26 @@ config.enable_tab_bar = false
 config.use_fancy_tab_bar = false
 
 
+local function get_appearance()
+  if wezterm.gui then
+    return wezterm.gui.get_appearance()
+  end
+  return 'Dark'
+end
+
+local function set_scheme(appearance)
+  if appearance:find 'Dark' then
+    return 'Seti'
+  else
+    return 'AtomOneLight'
+  end
+end
+
+config.color_scheme = set_scheme(get_appearance())
+
 -- config.color_scheme = 'Catppuccin Mocha'
-config.color_scheme = 'zenbones_dark'
+-- config.color_scheme = 'zenbones_dark'
 config.font = wezterm.font 'JetBrains Mono'
-config.window_decorations = "RESIZE"
-config.font_size = 16.0
 -- config.font = wezterm.font 'CommitMono Nerd Font'
 
 config.warn_about_missing_glyphs = false

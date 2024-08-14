@@ -1,0 +1,69 @@
+@import "onedark.css";
+
+* {
+    border: none;
+    font-family: "JetBrains Mono";
+    font-size: 14px;
+    min-height: 0;
+}
+
+.modules-left {
+  margin: 0.25rem 2rem;
+  background-color: @black;
+  border-radius: 2rem;
+  padding: 0.5rem;
+}
+
+#waybar {
+    background-color: @transparent;
+    color: @gray;
+    padding: 0.15rem;
+    margin: 0.25rem 0;
+}
+
+
+#workspaces {
+  border-radius: 2rem;
+  background-color: @black;
+  margin-left: 1rem;
+  padding: 0.5rem 2rem;
+}
+
+#workspaces button {
+  color: @gray;
+  background-color: @gray;
+  margin: 0 0.15rem;
+  font-size: 2px;
+  border-radius: 3rem;
+}
+
+#workspaces button.active {
+  color: @purple;
+  background-color: @purple;
+}
+
+#workspaces button:hover {
+  color: @gray;
+  background-color: @gray;
+  border: 1px inset @purple;
+}
+
+#tray,
+#clock,
+#pulseaudio,
+#custom-lock,
+#memory,
+#cpu
+ {
+  background-color: @black;
+  margin: 0 8px;
+  border-radius: 3rem;
+  padding: 0 2rem;
+}
+
+#tray {
+  margin: 0 1rem;
+  border-radius: 3rem;
+  padding: 0.5rem 2rem;
+  background-color: @green;
+}
