@@ -50,7 +50,7 @@ if git status --porcelain | grep -q "^"
     git commit -m "$commit_message"
 
     # Push changes
-    git push origin main
+    git push origin 2024
     echo "Changes pushed to repository"
 else
     echo "No changes to commit"
