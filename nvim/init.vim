@@ -1,16 +1,14 @@
 source $HOME/.config/nvim/vim-plug/plugins.vim
 source $HOME/.config/nvim/plug-config/lsp-config.vim
-luafile $HOME/.config/nvim/lua/plugins/compe-config.lua
+luafile $HOME/.config/nvim/lua/plugins/cmp.lua
 luafile $HOME/.config/nvim/lua/plugins/autopairs-config.lua
 luafile $HOME/.config/nvim/lua/plugins/mason.lua
 luafile $HOME/.config/nvim/lua/plugins/treesitter.lua
-" luafile $HOME/.config/nvim/lua/plugins/formatter.lua
 luafile $HOME/.config/nvim/lua/plugins/conform.lua
 luafile $HOME/.config/nvim/lua/plugins/comment.lua
 
 
 lua require('lualine').setup{ options = { theme = "auto" } }
-lua require('nvim-autopairs').setup()
 
 
 set ttyfast
