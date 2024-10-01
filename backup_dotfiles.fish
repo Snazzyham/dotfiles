@@ -5,13 +5,16 @@ set dotfiles \
     "$HOME/.config/fish" \
     "$HOME/.config/nvim" \
     "$HOME/.wezterm.lua" \
+    "$HOME/.tmux" \
+    "$HOME/.config/ags" \
+    "$HOME/.config/anyrun" \
     "$HOME/.tmux.conf" \
     "$HOME/.config/starship.toml" \
-    "$HOME/.config/fuzzel" \
     "$HOME/.config/hypr" \
+    "$HOME/.config/swayidle" \
+    "$HOME/.config/hamblue-theme" \
     "$HOME/.config/waybar" \
-    "$HOME/.config/wlogout" \
-    "$HOME/.config/mako" 
+    "$HOME/.config/wlogout" 
 
     # Add more files as needed
 

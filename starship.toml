@@ -1,24 +1,24 @@
-palette="onedark"
+palette="hamblue"
 
 ## FIRST LINE/ROW: Info & Status
 # First param ─┌
 [username]
 format = " [$user]($style) at "
 show_always = true
-style_root = "bold red"
-style_user = "bold red"
+style_root = "color_1"
+style_user = "color_2"
 
 # Second param
 [hostname]
 disabled = false
 format = "[$hostname]($style) in "
 ssh_only = true
-style = "bold dimmed cambridgeblue"
+style = "color_2"
 trim_at = "-"
 
 # Third param
 [directory]
-style = "lavender"
+style = "color_3"
 truncate_to_repo = true
 truncation_length = 0
 truncation_symbol = "  "
@@ -33,14 +33,14 @@ ahead = "⇡${count}"
 behind = "⇣${count}"
 deleted = "x"
 diverged = "⇕⇡${ahead_count}⇣${behind_count}"
-style = "cambridgeblue"
+style = "color_4"
 
 # Last param in the first line/row
 [cmd_duration]
 disabled = false
 format = "took [$duration]($style)"
 min_time = 1000
-style = "text"
+style = "color_4"
 
 
 ## SECOND LINE/ROW: Prompt
@@ -53,7 +53,7 @@ full_symbol = ""
 
 [[battery.display]]  # "bold red" style when capacity is between 0% and 10%
 disabled = false
-style = "bold red"
+style = "color_4"
 threshold = 15
 
 [[battery.display]]  # "bold yellow" style when capacity is between 10% and 30%
@@ -70,13 +70,13 @@ threshold = 80
 [time]
 disabled = true
 format = " 🕙 $time($style)\n"
-style = "pearl"
+style = "color_4"
 time_format = "%T"
 
 # Prompt: param 2
 [character]
-error_symbol = " [×](bold red)"
-success_symbol = " [❯](bold red)"
+error_symbol = " [×](bold color_1)"
+success_symbol = " [❯](bold color_1)"
 
 # SYMBOLS
 [status]
@@ -88,6 +88,7 @@ symbol = "🔴"
 
 [aws]
 symbol = " "
+style = "color_3"
 
 [conda]
 symbol = " "
@@ -97,6 +98,7 @@ symbol = " "
 
 [docker_context]
 symbol = " "
+style = "color_3"
 
 [elixir]
 symbol = " "
@@ -110,6 +112,7 @@ style = "bold cambridgeblue"
 
 [golang]
 symbol = " "
+style = "color_3"
 
 [hg_branch]
 symbol = " "
@@ -128,9 +131,11 @@ symbol = " "
 
 [nodejs]
 symbol = " "
+style = "color_3"
 
 [package]
 symbol = "󰏖 "
+style = "color_4"
 
 [perl]
 symbol = " "
@@ -243,3 +248,43 @@ crust = "#1C1E26"
 dimgray = "#5C6370"
 pearl = "#3E4451"
 cambridgeblue = "#61AFEF"
+
+[palettes.mathias]
+color_fg = "#BBBBBB"
+color_bg = "#000000"
+color_0 = "#000000"
+color_1 = "#E52222"
+color_2 = "#A6E42E"
+color_3 = "#FC951E"
+color_4 = "#C48DFF"
+color_5 = "#FA238E"
+color_6 = "#67D9D0"
+color_7 = "#F2F2F2"
+color_8 = "#555555"
+color_9 = "#FF5555"
+color_10 = "#55FF55"
+color_11 = "#FFFF55"
+color_12 = "#5555FF"
+color_13 = "#FF55FF"
+color_14 = "#55FFFF"
+color_15 = "#FFFFFF"
+
+[palettes.hamblue]
+color_fg = "#F4F4F9"
+color_bg = "#000000"
+color_0 = "#000000"
+color_1 = "#2F4550"
+color_2 = "#586F7C"
+color_3 = "#B8DBD9"
+color_4 = "#F4F4F9"
+color_5 = "#2F4550"
+color_6 = "#B8DBD9"
+color_7 = "#F4F4F9"
+color_8 = "#2F4550"
+color_9 = "#586F7C"
+color_10 = "#B8DBD9"
+color_11 = "#F4F4F9"
+color_12 = "#586F7C"
+color_13 = "#B8DBD9"
+color_14 = "#F4F4F9"
+color_15 = "#F4F4F9"

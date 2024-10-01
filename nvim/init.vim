@@ -48,7 +48,7 @@ set splitbelow
 " highlight Pmenu ctermbg=black gui=bold
 "set notermguicolors
 " set t_Co=256
-colorscheme github_dark_tritanopia
+colorscheme hamblue
 set background=dark
 
 " theme specific 

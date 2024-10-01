@@ -2,7 +2,7 @@
     "layer": "top",
     "position": "top",
     "modules-left": ["hyprland/window"],
-    "modules-right": ["tray", "custom/lock", "pulseaudio","cpu", "memory", "clock", "hyprland/workspaces"],
+    "modules-right": ["tray", "custom/lock", "custom/caffeine", "pulseaudio","cpu", "memory", "clock", "hyprland/workspaces"],
     "hyprland/window": {
         "max-length": 200,
         "separate-outputs": true
@@ -30,5 +30,10 @@
         "tooltip": false,
         "on-click": "wlogout",
         "format": "󰤆 "
+    },
+    "custom/caffeine": {
+        "exec": "~/check_swayidle.sh",
+        "interval": 20,
+        "format": "{}"
     }
 }

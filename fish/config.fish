@@ -8,9 +8,6 @@ set -x DEV_ENV dev
 set -x PATH /usr/local/bin /usr/bin /bin /usr/sbin /sbin:$PATH $GOPATH/bin /usr/local/bin/solana-release/bin /home/soham/.local/lib/python3.10/site-packages /home/soham/.local/bin
 
 
-set -x LS_COLORS "di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30"
-
-
 # Add ~/.local/bin to PATH
 if test -d ~/.local/bin
     if not contains -- ~/.local/bin $PATH
@@ -34,6 +31,8 @@ set fish_greeting ""
 #! Themes
 
 # source ~/.config/fish/themes/kanagawabones.fish
+
+source $HOME/.config/fish/themes/hamblue.fish
 
 #fish_config theme choose "Rosé Pine Dawn"
 #fish_config theme choose "Catppuccin Latte" 

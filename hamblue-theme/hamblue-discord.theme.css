@@ -1,0 +1,119 @@
+/**
+ * @name HamBlue
+ * @author Soham Adwani
+ * @version 1.0.1
+ * @description A calm and cool HamBlue theme for Discord with improved text readability
+ * @source https://github.com/Snazzyham/hamblue-theme
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700&display=swap');
+
+:root {
+  --font-primary: 'Roboto', sans-serif;
+  --font-display: 'Roboto', sans-serif;
+
+  --background-primary: #000000;
+  --background-secondary: #2F4550;
+  --background-secondary-alt: #2F4550;
+  --background-tertiary: #000000;
+  --background-accent: #577787;
+  --background-floating: #2F4550;
+
+  --channeltextarea-background: #2F4550;
+
+  --text-normal: #F4F4F9;
+  --text-muted: #CCCCCC;
+  --text-link: #B8DBD9;
+  --text-positive: #A6E22E;
+  --text-warning: #ffb703;
+  --text-danger: #fb8500;
+  --interactive-normal: #F4F4F9;
+  --interactive-hover: #B8DBD9;
+  --interactive-active: #F4F4F9;
+  --interactive-muted: #577787;
+
+  --header-primary: #F4F4F9;
+  --header-secondary: #B8DBD9;
+
+  --background-modifier-hover: rgba(87, 119, 135, 0.3);
+  --background-modifier-active: rgba(87, 119, 135, 0.6);
+  --background-modifier-selected: rgba(87, 119, 135, 0.5);
+
+  --channels-default: #B8DBD9;
+  --guild-header-text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+
+  --scrollbar-thin-thumb: #577787;
+  --scrollbar-auto-thumb: #577787;
+  --scrollbar-auto-track: #2F4550;
+
+  --elevation-stroke: 0 0 0 1px rgba(47, 69, 80, 0.6);
+  --elevation-low: 0 1px 5px 0 rgba(0, 0, 0, 0.3);
+  --elevation-medium: 0 4px 7px 0 rgba(0, 0, 0, 0.3);
+  --elevation-high: 0 8px 16px 0 rgba(0, 0, 0, 0.3);
+}
+
+body {
+  --background-primary: var(--background-primary);
+  --background-secondary: var(--background-secondary);
+  --background-secondary-alt: var(--background-secondary-alt);
+  --background-tertiary: var(--background-tertiary);
+  --background-accent: var(--background-accent);
+  --background-floating: var(--background-floating);
+
+  --text-normal: var(--text-normal);
+  --text-muted: var(--text-muted);
+  --text-link: var(--text-link);
+
+  --interactive-normal: var(--interactive-normal);
+  --interactive-hover: var(--interactive-hover);
+  --interactive-active: var(--interactive-active);
+  --interactive-muted: var(--interactive-muted);
+
+  --channeltextarea-background: var(--channeltextarea-background);
+  --brand-experiment: var(--background-accent) !important;
+
+  font-family: var(--font-primary);
+  color: var(--text-normal);
+}
+
+/* Ensure all text uses the --text-normal color by default */
+* {
+  color: var(--text-normal);
+}
+
+/* Override specific text colors for better contrast */
+.theme-dark {
+  --text-normal: #F4F4F9;
+  --header-primary: #F4F4F9;
+  --interactive-normal: #F4F4F9;
+}
+
+/* Adjust input placeholders */
+::placeholder {
+  color: var(--text-muted) !important;
+}
+
+/* Ensure channel names are readable */
+.name-28HaxV {
+  color: var(--interactive-normal);
+}
+
+/* Adjust message content color */
+.markup-eYLPri {
+  color: var(--text-normal);
+}
+
+/* Make sure usernames are visible */
+.username-h_Y3Us {
+  color: var(--header-primary);
+}
+
+/* Ensure readability in various UI components */
+.title-31SJ6t,
+.mainContent-20q_Hp,
+.container-2nx-BQ,
+.activityText-1rR-8O {
+  color: var(--text-normal);
+}
+
+/* ... (rest of the CSS remains the same) ... */
