@@ -9,7 +9,7 @@ set fish_color_keyword "#577787"  # Keywords like `if`, `else`
 set fish_color_quote "#B8DBD9"  # Quotes
 set fish_color_redirection "#2F4550"  # Redirection symbols
 set fish_color_end "#577787"  # End of a statement (`;`)
-set fish_color_error "#B8DBD9"  # Errors
+set fish_color_error "#e76f51"  # Errors
 set fish_color_selection "#000000"  # Selected text background
 set fish_color_search_match "#B8DBD9"  # Search matches
 set fish_color_history_current "#F4F4F9"  # Current command in history

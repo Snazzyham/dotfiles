@@ -5,6 +5,8 @@ set -x VISUAL nvim
 
 set -x DEV_ENV dev
 
+set -x XDG_CONFIG_HOME /home/soham/.config
+
 set -x PATH /usr/local/bin /usr/bin /bin /usr/sbin /sbin:$PATH $GOPATH/bin /usr/local/bin/solana-release/bin /home/soham/.local/lib/python3.10/site-packages /home/soham/.local/bin
 
 
