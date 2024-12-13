@@ -2,6 +2,11 @@ palette="hamblue"
 
 ## FIRST LINE/ROW: Info & Status
 # First param ─┌
+# [ssh]
+# disabled = false
+# prefix = "󰢩 SSH CONNECTED "
+# style = "color_2 bold"
+
 [username]
 format = " [$user]($style) at "
 show_always = true
@@ -89,6 +94,8 @@ symbol = "🔴"
 [aws]
 symbol = " "
 style = "color_3"
+# format = "on [$symbol $profile]($style)"
+disabled = false
 
 [conda]
 symbol = " "

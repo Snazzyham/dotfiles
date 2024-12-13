@@ -7,6 +7,11 @@ set -x DEV_ENV dev
 
 set -x XDG_CONFIG_HOME /home/soham/.config
 
+set -x XDG_CURRENT_DESKTOP Hyprland
+
+set -x GNOME_KEYRING_CONTROL /run/user/$UID/GNOME_KEYRING_CONTROL
+set -x XDG_SESSION_TYPE wayland
+
 set -x PATH /usr/local/bin /usr/bin /bin /usr/sbin /sbin:$PATH $GOPATH/bin /usr/local/bin/solana-release/bin /home/soham/.local/lib/python3.10/site-packages /home/soham/.local/bin
 
 
