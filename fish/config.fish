@@ -135,3 +135,5 @@ set --export PATH $BUN_INSTALL/bin $PATH
 
 # sst
 fish_add_path /home/soham/.sst/bin
+set -gx VOLTA_HOME "$HOME/.volta"
+set -gx PATH "$VOLTA_HOME/bin" $PATH

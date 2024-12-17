@@ -30,11 +30,8 @@ config.color_scheme_dirs = {  "/home/soham/.config/wezterm/colors" }
 config.font_dirs = { "/usr/share/fonts/TTF"}
 
 config.color_scheme = "HamBlue"
--- config.color_scheme = 'Catppuccin Mocha'
--- config.color_scheme = 'zenbones_dark'
--- config.font = wezterm.font 'JetBrains Mono'\
--- config.font = wezterm.font 'CommitMono Nerd Font'
 config.font = wezterm.font 'CaskaydiaCove NF'
+-- config.font = wezterm.font 'BlexMono Nerd Font'
 config.font_size = 12.5
 
 config.warn_about_missing_glyphs = false

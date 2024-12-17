@@ -50,7 +50,7 @@ if git status --porcelain | grep -q "^"
     read -P "Enter commit message: " commit_message
 
     # Commit changes
-    git add .
+    git add -p .
     git commit -m "$commit_message"
 
     # Push changes
