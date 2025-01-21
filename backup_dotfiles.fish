@@ -6,7 +6,6 @@ set dotfiles \
     "$HOME/.config/nvim" \
     "$HOME/.wezterm.lua" \
     "$HOME/.tmux" \
-    "$HOME/.config/ags" \
     "$HOME/.config/anyrun" \
     "$HOME/.tmux.conf" \
     "$HOME/.config/starship.toml" \
