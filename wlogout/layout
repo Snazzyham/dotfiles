@@ -32,3 +32,10 @@
     "text" : "Reboot",
     "keybind" : "r"
 }
+
+{
+  "label": "fix-audio",
+  "action": "hyprctl dispatch dpms off && hyprctl dispatch dpms on",
+  "text": "Fix Audio",
+  "keybind": "a"
+}

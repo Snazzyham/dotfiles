@@ -6,6 +6,7 @@ luafile $HOME/.config/nvim/lua/plugins/mason.lua
 luafile $HOME/.config/nvim/lua/plugins/treesitter.lua
 luafile $HOME/.config/nvim/lua/plugins/conform.lua
 luafile $HOME/.config/nvim/lua/plugins/comment.lua
+luafile $HOME/.config/nvim/lua/plugins/gh-nvim.lua
 
 
 lua require('lualine').setup{ options = { theme = "auto" } }
