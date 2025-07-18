@@ -3,6 +3,8 @@ set -x GOPATH $HOME/go
 set -x EDITOR nvim
 set -x VISUAL nvim
 
+set -x GTK_THEME Adwaita:dark
+
 set -x DEV_ENV dev
 
 set -x XDG_CONFIG_HOME /home/soham/.config
@@ -39,7 +41,6 @@ set fish_greeting ""
 
 # source ~/.config/fish/themes/kanagawabones.fish
 
-source $HOME/.config/fish/themes/hamblue.fish
 
 #fish_config theme choose "Rosé Pine Dawn"
 #fish_config theme choose "Catppuccin Latte" 
@@ -127,7 +128,6 @@ end
 #
 
 starship init fish | source
-source ~/.config/fish/functions/get_color.fish
 
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
@@ -137,3 +137,6 @@ set --export PATH $BUN_INSTALL/bin $PATH
 fish_add_path /home/soham/.sst/bin
 set -gx VOLTA_HOME "$HOME/.volta"
 set -gx PATH "$VOLTA_HOME/bin" $PATH
+
+
+source $HOME/.config/fish/themes/base16violet.fish

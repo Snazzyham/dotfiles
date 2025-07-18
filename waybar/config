@@ -2,56 +2,61 @@
     "layer": "top",
     "position": "top",
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
-    "modules-right": ["custom/docker", "custom/bluetooth", "tray", "pulseaudio","cpu", "memory", "clock"],
+    "modules-right": ["custom/docker", "custom/bluetooth", "tray", "pulseaudio", "cpu", "memory", "clock"],
+
     "hyprland/window": {
-        "max-length": 200,
+        "max-length": 100,
         "separate-outputs": true
     },
-  "hyprland/workspaces": {
+
+    "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
         "active-only": false,
         "format": "{icon}",
         "format-icons": {
-            "active": "󰝥",        /* Filled circle */
-            "occupied": "󰪥",      /* Partially filled circle */
-            "empty": "󰝦",         /* Empty circle */
-            "urgent": "󰊠",
-            "default": "󰝦"
+            "active": "",
+            "occupied": "",
+            "empty": "",
+            "urgent": "󰀦",
+            "default": ""
         },
         "persistent_workspaces": {
-            "1": [],
-            "2": [],
-            "3": [],
-            "4": [],
-            "5": []
+            "1": [], "2": [], "3": [], "4": [], "5": []
         }
     },
+
     "clock": {
-        "format": "󱑃  {:%a %d. %b  %H:%M}"
+        "format": "󰥔  {:%a %d %b • %H:%M}"
     },
+
     "pulseaudio": {
-        "format": "󰕾  {volume}",
+        "format": "󰕾 {volume}%",
         "on-click": "pavucontrol"
     },
+
     "cpu": {
-      "format": "󰻠  {usage}% {avg_frequency} ghz"
+        "format": "󰻠 {usage}%"
     },
+
     "memory": {
-      "format": "󰍛  {percentage}%"
+        "format": "󰍛 {percentage}%"
     },
+
     "tray": {
-      "icon_size": 16,
-      "spacing": 8
+        "icon_size": 18,
+        "spacing": 12
     },
+
     "custom/bluetooth": {
-      "exec": "~/.config/waybar/scripts/bt.sh",
-      "interval": 5,
-      "on-click": "blueman-manager"
+        "exec": "~/.config/waybar/scripts/bt.sh",
+        "interval": 5,
+        "on-click": "blueman-manager"
     },
+
     "custom/docker": {
-      "exec": "~/.config/waybar/scripts/docker.sh",
-      "return-type": "json",
-      "interval": 30,
+        "exec": "~/.config/waybar/scripts/docker.sh",
+        "return-type": "json",
+        "interval": 30
     }
 }

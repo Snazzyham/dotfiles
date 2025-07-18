@@ -14,6 +14,7 @@ set dotfiles \
     "$HOME/.config/hamblue-theme" \
     "$HOME/.config/waybar" \
     "$HOME/.config/swappy" \
+    "$HOME/.config/wofi" \
     "$HOME/.config/wlogout" 
 
     # Add more files as needed

@@ -1,4 +1,4 @@
-palette="hamblue"
+palette="dark_violet"
 
 ## FIRST LINE/ROW: Info & Status
 # First param ─┌
@@ -276,7 +276,7 @@ color_13 = "#FF55FF"
 color_14 = "#55FFFF"
 color_15 = "#FFFFFF"
 
-[palettes.hamblue]
+[palettes.iskald]
 color_fg = "#F4F4F9"
 color_bg = "#000000"
 color_0 = "#000000"
@@ -295,3 +295,45 @@ color_12 = "#586F7C"
 color_13 = "#B8DBD9"
 color_14 = "#F4F4F9"
 color_15 = "#F4F4F9"
+
+
+[palettes.dark_violet]
+color_fg  = "#D0D0FA"  # Bright violet-white foreground
+color_bg  = "#000000"  # Black background
+color_0   = "#000000"  # Black
+color_1   = "#2E1F47"  # Deep violet (darker accent)
+color_2   = "#4C3D73"  # Muted violet
+color_3   = "#8A4CCC"  # Purple highlight
+color_4   = "#D0D0FA"  # Light foreground
+color_5   = "#2E1F47"  # Deep violet accent
+color_6   = "#8A4CCC"  # Purple highlight
+color_7   = "#D0D0FA"  # Bright foreground
+color_8   = "#2E1F47"  # Darker variant
+color_9   = "#4C3D73"  # Muted violet
+color_10  = "#8A4CCC"  # Purple highlight
+color_11  = "#D0D0FA"  # Light foreground
+color_12  = "#4C3D73"  # Muted violet
+color_13  = "#8A4CCC"  # Purple highlight
+color_14  = "#D0D0FA"  # Bright foreground
+color_15  = "#D0D0FA"  # Bright foreground
+
+
+[palettes.iskaldlight]
+color_fg = "#2F4550"
+color_bg = "#2F4550"
+color_0 = "#000000"
+color_1 = "#2F4550"
+color_2 = "#586F7C"
+color_3 = "#2F4550" # Changed from #B8DBD9 to #2F4550
+color_4 = "#2F4550" # Changed from #F4F4F9 to #2F4550
+color_5 = "#2F4550"
+color_6 = "#2F4550" # Changed from #B8DBD9 to #2F4550
+color_7 = "#2F4550"
+color_8 = "#2F4550"
+color_9 = "#586F7C"
+color_10 = "#2F4550" # Changed from #B8DBD9 to #2F4550
+color_11 = "#2F4550" # Changed from #F4F4F9 to #2F4550
+color_12 = "#2F4550"
+color_13 = "#2F4550" # Changed from #B8DBD9 to #2F4550
+color_14 = "#2F4550" # Changed from #F4F4F9 to #2F4550
+color_15 = "#2F4550" # Changed from #F4F4F9 to #2F4550

@@ -1,6 +1,6 @@
 {
     "label" : "lock",
-    "action" : "swaylock -f && sleep 1 && hyprctl dispatch dpms off",
+    "action" : "killall Discord || true && swaylock -f && sleep 1 && hyprctl dispatch dpms off",
     "text" : "Lock",
     "keybind" : "l"
 }

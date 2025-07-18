@@ -1,53 +1,122 @@
 * {
   background-image: none;
+  font-family: "JetBrains Mono", "Noto Sans", sans-serif;
+  font-size: 16px;
+  box-shadow: none;
+  border: none;
 }
+
 window {
   background-color: rgba(0, 0, 0, 0);
+  margin: 0;
+  padding: 0;
+  /* center layout */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+/* Button container to stack vertically */
+box {
+  background: transparent;
+  border-radius: 16px;
+  padding: 20px;
+  spacing: 16px;
+}
+
+/* Base pill style */
 button {
-  color: #FFFFFF;
-  font-family: "monospace";
-  background-color: #2F4550;
-  border-radius: 0px;
-  border-style: none;
-  border-width: 0px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 25%;
+  min-width: 280px;
+  max-width: 700px;
+  padding: 16px 24px;
+  margin: 6px 0;
+  border-radius: 999px;
+  color: #e0e0e0;
+  background-color: rgba(255, 255, 255, 0.05);
+  transition: all 0.2s ease;
+  text-align: left;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  font-weight: 500;
 }
 
-button:focus, button:active, button:hover {
-  background-color: #586F7C;
-  outline-style: solid;
+/* Align icon + text */
+button label {
+  font-size: 16px;
+  padding-left: 14px;
 }
 
-label {
+/* Shared icon styles */
+button::before {
+  content: attr(data-icon);
+  font-family: "Nerd Font Mono";
+  font-size: 18px;
+  padding-right: 16px;
 }
 
-#lock, #logout, #suspend, #hibernate, #shutdown, #reboot {
-  opacity: 0.9;
+/* Hover effect */
+button:hover,
+button:focus {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
 }
 
-/* #lock { */
-/*     background-image: image(url("/usr/share/wlogout/icons/lock.png"), url("/usr/local/share/wlogout/icons/lock.png")); */
-/* } */
-/**/
-/* #logout { */
-/*     background-image: image(url("/usr/share/wlogout/icons/logout.png"), url("/usr/local/share/wlogout/icons/logout.png")); */
-/* } */
-/**/
-/* #suspend { */
-/*     background-image: image(url("/usr/share/wlogout/icons/suspend.png"), url("/usr/local/share/wlogout/icons/suspend.png")); */
-/* } */
-/**/
-/* #hibernate { */
-/*     background-image: image(url("/usr/share/wlogout/icons/hibernate.png"), url("/usr/local/share/wlogout/icons/hibernate.png")); */
-/* } */
-/**/
-/* #shutdown { */
-/*     background-image: image(url("/usr/share/wlogout/icons/shutdown.png"), url("/usr/local/share/wlogout/icons/shutdown.png")); */
-/* } */
-/**/
-/* #reboot { */
-/*     background-image: image(url("/usr/share/wlogout/icons/reboot.png"), url("/usr/local/share/wlogout/icons/reboot.png")); */
-/* } */
+/* Specific pill colors — match your Waybar theme */
+#lock {
+  background-color: rgba(216, 191, 216, 0.12);
+  color: #d8c4e6;
+}
+
+#lock:hover {
+  background-color: rgba(216, 191, 216, 0.2);
+  color: #ffffff;
+}
+
+#logout {
+  background-color: rgba(255, 182, 193, 0.12);
+  color: #ffc4d6;
+}
+
+#logout:hover {
+  background-color: rgba(255, 182, 193, 0.22);
+  color: #ffffff;
+}
+
+#suspend {
+  background-color: rgba(173, 216, 230, 0.12);
+  color: #bae5f5;
+}
+
+#suspend:hover {
+  background-color: rgba(173, 216, 230, 0.22);
+  color: #ffffff;
+}
+
+#shutdown {
+  background-color: rgba(255, 228, 181, 0.12);
+  color: #ffddad;
+}
+
+#shutdown:hover {
+  background-color: rgba(255, 228, 181, 0.22);
+  color: #ffffff;
+}
+
+#reboot {
+  background-color: rgba(144, 238, 144, 0.12);
+  color: #c0f0c0;
+}
+
+#reboot:hover {
+  background-color: rgba(144, 238, 144, 0.22);
+  color: #ffffff;
+}
+
+#fix-audio {
+  background-color: rgba(221, 160, 221, 0.12);
+  color: #dfb5f1;
+}
+
+#fix-audio:hover {
+  background-color: rgba(221, 160, 221, 0.22);
+  color: #ffffff;
+}

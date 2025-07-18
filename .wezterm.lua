@@ -1,15 +1,13 @@
-local wezterm = require 'wezterm'
+local wezterm = require("wezterm")
 
 local config = {}
 
-
 if wezterm.config_builder then
-  config = wezterm.config_builder()
+	config = wezterm.config_builder()
 end
 
 config.enable_tab_bar = false
 config.use_fancy_tab_bar = false
-
 
 -- local function get_appearance()
 --   if wezterm.gui then
@@ -26,21 +24,21 @@ config.use_fancy_tab_bar = false
 --   end
 -- end
 
-config.color_scheme_dirs = {  "/home/soham/.config/wezterm/colors" }
-config.font_dirs = { "/usr/share/fonts/TTF"}
+config.color_scheme_dirs = { "/home/soham/.config/wezterm/colors" }
+config.font_dirs = { "/usr/share/fonts/TTF" }
 
-config.color_scheme = "HamBlue"
-config.font = wezterm.font 'CaskaydiaCove NF'
--- config.font = wezterm.font 'BlexMono Nerd Font'
+-- config.color_scheme = "Iskald"
+config.color_scheme = "Tokyo Night"
+config.font = wezterm.font("CaskaydiaCove NF")
 config.font_size = 12.5
 
 config.warn_about_missing_glyphs = false
 
 config.window_padding = {
-  left = '2cell',
-  right = '2cell',
-  top = '1cell',
-  bottom = '1cell'
+	left = "2cell",
+	right = "2cell",
+	top = "1cell",
+	bottom = "1cell",
 }
 
 return config
