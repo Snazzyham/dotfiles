@@ -1,0 +1,20 @@
+# Swap fg/bg & cursor
+set fish_color_normal        "#000000"
+set fish_color_user          "#000000"
+set fish_color_history_current "#000000"
+set fish_color_selection     "#F4F4F9"
+set fish_cursor_color        "#000000"
+
+# accents unchanged
+set -x LS_COLORS "di=38;5;152:fi=38;5;231:ln=38;5;81:so=38;5;75:pi=38;5;131:ex=38;5;231"
+set fish_color_command       "#577787"
+set fish_color_comment       "#2F4550"
+set fish_color_keyword       "#577787"
+set fish_color_quote         "#B8DBD9"
+set fish_color_redirection  "#2F4550"
+set fish_color_end           "#577787"
+set fish_color_error         "#e76f51"
+set fish_color_search_match  "#B8DBD9"
+set fish_color_operator      "#577787"
+set fish_color_escape        "#B8DBD9"
+set fish_color_cwd           "#B8DBD9"

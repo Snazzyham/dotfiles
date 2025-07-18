@@ -1,0 +1,48 @@
+/* Make the entire screen black */
+window {
+  margin: 0;
+  padding: 0;
+  background-color: #000000;  /* solid black background */
+  border: none;
+}
+
+/* Menu container centered */
+#main {
+  margin: auto;
+  background-color: transparent;
+  border: none;
+  padding: 40px;
+  spacing: 16px;
+}
+
+/* Entry field (the search bar) */
+#input {
+  border-radius: 999px;
+  padding: 14px 20px;
+  margin: 20px auto;
+  font-size: 16px;
+  font-family: "JetBrains Mono", "Noto Sans", sans-serif;
+  background-color: rgba(255, 255, 255, 0.06);
+  color: #e0e0e0;
+  border: none;
+  min-width: 360px;
+}
+
+/* Menu items (your power options) */
+#entry {
+  border-radius: 999px;
+  padding: 14px 20px;
+  margin: 10px auto;
+  font-size: 16px;
+  font-family: "JetBrains Mono", "Noto Sans", sans-serif;
+  background-color: rgba(255, 255, 255, 0.06);
+  color: #e0e0e0;
+  min-width: 360px;
+  border: none;
+}
+
+/* Selected/hovered item */
+#entry:selected {
+  background-color: rgba(200, 160, 255, 0.2);
+  color: #ffffff;
+}

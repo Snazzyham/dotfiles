@@ -1,0 +1,7 @@
+- VIM
+- WezTerm
+- Mako
+- Hyprland?
+- GTK
+- WayBar?
+- Brave
