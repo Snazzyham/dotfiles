@@ -8,6 +8,7 @@ require("plugins.treesitter")
 require("plugins.conform")
 require("plugins.comment")
 require("plugins.lsp")
+require("plugins.diagnostics")
 
 -- Statusline
 require("lualine").setup({ options = { theme = "auto" } })
@@ -32,14 +33,6 @@ vim.opt.splitbelow = true
 vim.opt.termguicolors = true
 vim.opt.cursorline = true
 
--- Keymaps
-vim.keymap.set("i", "jk", "<Esc>")
-vim.keymap.set("n", "<Space><Space>", '<Esc>/_++_<Enter>"_c4l')
-vim.keymap.set("n", "<C-p>", ":Telescope find_files<CR>")
-vim.keymap.set("n", "<C-o>", ":Telescope live_grep<CR>")
-vim.keymap.set("n", "<C-b>", ":GitBlameToggle<CR>")
-vim.keymap.set("n", "vp", "<C-v>")
-
 -- Emmet leader key
 vim.g.user_emmet_leader_key = "<C-A>"
 
@@ -57,3 +50,13 @@ vim.cmd([[hi MatchParen ctermfg=0 ctermbg=252 guifg=#ffffff guibg=#ff1100]])
 -- Colorscheme
 vim.opt.termguicolors = true
 vim.cmd("colorscheme tokyonight-night")
+
+-- keymaps
+
+vim.keymap.set("i", "jk", "<Esc>")
+vim.keymap.set("n", "<Space><Space>", '<Esc>/_++_<Enter>"_c4l')
+vim.keymap.set("n", "<C-b>", ":GitBlameToggle<CR>")
+vim.keymap.set("n", "vp", "<C-v>")
+local builtin = require("telescope.builtin")
+vim.keymap.set("n", "<C-p>", builtin.find_files, { noremap = true, silent = true })
+vim.keymap.set("n", "<C-o>", builtin.live_grep, { noremap = true, silent = true })
