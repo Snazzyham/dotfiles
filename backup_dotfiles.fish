@@ -47,15 +47,15 @@ end
 # Check if there are any changes
 if git status --porcelain | grep -q "^"
     # Prompt for commit message
-    read -P "Enter commit message: " commit_message
-
-    # Commit changes
-    git add -p .
-    git commit -m "$commit_message"
-
-    # Push changes
-    git push origin 2024
-    echo "Changes pushed to repository"
+    # read -P "Enter commit message: " commit_message
+    #
+    # # Commit changes
+    # git add -p .
+    # git commit -m "$commit_message"
+    #
+    # # Push changes
+    # git push origin 2024
+    echo "Please stage your commits and push them."
 else
     echo "No changes to commit"
 end
