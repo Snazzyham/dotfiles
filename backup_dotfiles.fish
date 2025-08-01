@@ -6,7 +6,6 @@ set dotfiles \
     "$HOME/.config/nvim" \
     "$HOME/.wezterm.lua" \
     "$HOME/.tmux" \
-    "$HOME/.config/anyrun" \
     "$HOME/.tmux.conf" \
     "$HOME/.config/starship.toml" \
     "$HOME/.config/hypr" \
@@ -14,7 +13,8 @@ set dotfiles \
     "$HOME/.config/hamblue-theme" \
     "$HOME/.config/waybar" \
     "$HOME/.config/swappy" \
-    "$HOME/.config/wofi" \
+    "$HOME/.config/rofi" \
+    "$HOME/.config/fuzzel" \
     "$HOME/.config/wlogout" 
 
     # Add more files as needed
