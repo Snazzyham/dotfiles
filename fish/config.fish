@@ -39,7 +39,6 @@ set fish_greeting ""
 
 #! Themes
 
-# source ~/.config/fish/themes/kanagawabones.fish
 
 
 #fish_config theme choose "Rosé Pine Dawn"
@@ -139,4 +138,4 @@ set -gx VOLTA_HOME "$HOME/.volta"
 set -gx PATH "$VOLTA_HOME/bin" $PATH
 
 
-source $HOME/.config/fish/themes/base16violet.fish
+source ~/.config/fish/themes/kanagawabones.fish

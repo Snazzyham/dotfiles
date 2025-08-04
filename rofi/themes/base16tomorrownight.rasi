@@ -1,0 +1,78 @@
+/* ~/.local/share/rofi/themes/tomorrow-night-base16.rasi */
+
+* {
+    font: "JetBrainsMono Nerd Font 12";
+    background: #1d1f21FF;        /* base00 */
+    foreground: #c5c8c6FF;        /* base05 */
+    border-color: #5f819dFF;      /* base0D */
+    separatorcolor: #282a2eFF;    /* base01 */
+
+    selected: #373b41FF;          /* base02 */
+    selected-foreground: #f0c674FF; /* base0A */
+
+    active: #81a2beFF;            /* base0D bright */
+    urgent: #cc6666FF;            /* base08 */
+
+    border: 2px;
+    border-radius: 6px;
+    padding: 8;
+    spacing: 5;
+}
+
+window {
+    location: center;
+    width: 50%;
+}
+
+mainbox {
+    children: [ inputbar, listview ];
+    padding: 12px;
+    border: 2px;
+    border-color: @border-color;
+    border-radius: 6px;
+    background-color: @background;
+}
+
+inputbar {
+    background-color: @background;
+    text-color: @foreground;
+    padding: 6px;
+    children: [ prompt, entry ];
+}
+
+prompt {
+    text-color: @foreground;
+    margin: 0px 6px 0px 0px;
+}
+
+entry {
+    text-color: @foreground;
+    placeholder-color: #707880FF;
+}
+
+listview {
+    lines: 8;
+    columns: 1;
+    spacing: 4px;
+    fixed-height: true;
+    scrollbar: true;
+}
+
+element {
+    padding: 5px;
+    background-color: @background;
+    text-color: @foreground;
+}
+
+element selected {
+    background-color: @selected;
+    text-color: @selected-foreground;
+}
+
+element active {
+    text-color: @active;
+}
+
+element urgent {
+    text-color: @urgent;
+}

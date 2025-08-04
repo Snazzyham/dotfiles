@@ -28,7 +28,7 @@ config.color_scheme_dirs = { "/home/soham/.config/wezterm/colors" }
 config.font_dirs = { "/usr/share/fonts/TTF" }
 
 -- config.color_scheme = "Iskald"
-config.color_scheme = "Tokyo Night"
+config.color_scheme = "Tomorrow (dark) (terminal.sexy)"
 config.font = wezterm.font("CaskaydiaCove NF")
 config.font_size = 12.5
 

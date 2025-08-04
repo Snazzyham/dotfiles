@@ -2,6 +2,9 @@
 # A template was taken and modified from Tokyonight:
 # https://github.com/folke/tokyonight.nvim/blob/main/extras/fish_tokyonight_night.fish
 
+# LS_COLORS for Base16 Tomorrow Night (Subtle & Chill)
+set -x LS_COLORS "di=38;5;66:fi=38;5;245:ln=38;5;110:so=38;5;102:pi=38;5;95:ex=38;5;185"
+
 # Define colors
 set -l background "#1F1F28"
 set -l foreground "#DDD8BB"
