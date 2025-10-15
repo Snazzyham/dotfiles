@@ -29,7 +29,11 @@ window#waybar {
 #memory,
 #tray,
 #custom-bluetooth,
+#custom-warp,
 #custom-docker,
+#battery,
+#custom-brightness,
+#network,
 #hyprland-window {
   padding: 6px 12px;
   margin: 4px 6px;
@@ -78,7 +82,7 @@ window#waybar {
   color: #ffcad4;
 }
 
-#pulseaudio {
+#pulseaudio, #custom-brightness {
   background-color: rgba(173, 216, 230, 0.15); /* Light blue */
   color: #b0e0ff;
 }
@@ -93,9 +97,14 @@ window#waybar {
   color: #ddb0ff;
 }
 
-#custom-docker {
+#custom-docker, #battery {
   background-color: rgba(152, 251, 152, 0.15); /* Mint */
   color: #c1f2d8;
+}
+
+#custom-warp {
+  background-color: rgba(244, 129, 32, 0.15); /* Cloudflare orange, 15% opacity */
+  color: #F48120;
 }
 
 #custom-bluetooth {
@@ -106,6 +115,11 @@ window#waybar {
 #tray {
   padding: 0 10px;
   margin: 4px 6px;
+}
+
+#network {
+  background-color: rgba(221, 160, 221, 0.15); /* Light mauve */
+  color: #e6b0ff;
 }
 
 /* Tooltip */

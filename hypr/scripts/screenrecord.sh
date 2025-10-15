@@ -33,7 +33,7 @@ if pgrep -x "wf-recorder" > /dev/null; then
     fi
 
 else
-    choice=$(printf "1. Full Screen\n2. Full Screen + Audio\n3. Region\n4. Region + Audio" | wofi --show dmenu -p "Screen Record")
+    choice=$(printf "1. Full Screen\n2. Full Screen + Audio\n3. Region\n4. Region + Audio" | rofi -dmenu -p "Screen Record")
     output="$OUTDIR/recording_$(date +%Y-%m-%d_%H-%M-%S).mp4"
 
     case $choice in

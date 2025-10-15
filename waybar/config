@@ -2,7 +2,7 @@
     "layer": "top",
     "position": "top",
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
-    "modules-right": ["custom/docker", "custom/bluetooth", "tray", "pulseaudio", "cpu", "memory", "clock"],
+    "modules-right": ["custom/warp", "custom/docker", "custom/bluetooth", "tray", "pulseaudio", "custom/brightness", "network", "cpu", "memory", "battery", "clock"],
 
     "hyprland/window": {
         "max-length": 100,
@@ -58,5 +58,40 @@
         "exec": "~/.config/waybar/scripts/docker.sh",
         "return-type": "json",
         "interval": 30
+    },
+    "custom/brightness": {
+	"exec": "~/.config/waybar/scripts/brightness.sh",
+	"interval": 5,
+	"format": "{}%"
+    },
+    "battery": {
+    "format": "{icon} {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-plugged": "󰂄 {capacity}%",
+    "format-alt": "{time} {icon}",
+    "format-icons": ["󰂎", "󰂑", "󰂔", "󰂗", "󰁿"],
+    "states": {
+        "good": 90,
+        "warning": 30,
+        "critical": 15
+    },
+    "tooltip": true,
+    "interval": 10
+    },
+    "network": {
+        "interface": "wlan0",
+        "format-wifi": "󰤨  {essid}",
+        "format-ethernet": "󰈀 {ifname}",
+        "format-disconnected": "󰤮 Disconnected",
+        "tooltip": true,
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "on-click-right": "nm-connection-editor",
+        "on-click": "~/.config/waybar/scripts/wifi_details.sh"
+    },
+    "custom/warp": {
+      "exec": "~/.config/waybar/scripts/warp_status.sh",
+      "return-type": "json",
+      "interval": 5,
+      "on-click": "~/.config/waybar/scripts/warp_toggle.sh"
     }
 }

@@ -3,7 +3,7 @@ set -x GOPATH $HOME/go
 set -x EDITOR nvim
 set -x VISUAL nvim
 
-set -x GTK_THEME Adwaita:dark
+set -x GTK_THEME Materia-dark
 
 set -x DEV_ENV dev
 
@@ -54,9 +54,8 @@ alias cat='bat --style header --style snip --style changes --style header'
 alias vplug='nvim +PlugInstall +qall'
 alias ff='nvim --cmd "lua vim.schedule(function() require(\"telescope.builtin\").find_files() end)"'
 alias fo='nvim --cmd "lua vim.schedule(function() require(\"telescope.builtin\").live_grep() end)"'
-alias n='vifm'
-alias vold='/usr/bin/vim'
 alias vim='nvim'
+alias vold='/usr/bin/vim'
 alias q="qlmanage -p"
 alias gd="cd Google\ Drive\ File\ Stream/My\ Drive"
 alias gt='cd ~/Documents/github'
