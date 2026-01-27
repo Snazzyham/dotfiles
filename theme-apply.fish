@@ -542,7 +542,7 @@ function apply_rofi
 
     normal-background:           @background;
     normal-foreground:           @foreground;
-    alternate-normal-background: @theme-bg1;
+    alternate-normal-background: @background;
     alternate-normal-foreground: @foreground;
     selected-normal-background:  @theme-bg2;
     selected-normal-foreground:  @theme-fg0;

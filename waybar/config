@@ -37,8 +37,8 @@
     },
 
     "pulseaudio": {
-        "format": " {volume}%",
-        "format-muted": " muted",
+        "format": " {volume}%",
+        "format-muted": "󰝟 muted",
         "on-click": "pavucontrol"
     },
 
@@ -54,7 +54,7 @@
     },
 
     "cpu": {
-        "format": " {usage}%",
+        "format": " {usage}%",
         "interval": 5
     },
 

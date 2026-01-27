@@ -31,7 +31,7 @@ vim.opt.cindent = true
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.termguicolors = true
-vim.opt.cursorline = true
+vim.opt.cursorline = false
 
 -- Emmet leader key
 vim.g.user_emmet_leader_key = "<C-A>"
