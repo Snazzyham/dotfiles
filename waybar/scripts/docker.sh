@@ -17,6 +17,7 @@ container_names=$(docker ps --format "{{.Names}}")
 if [ "$container_count" -eq 0 ]; then
   echo "{\"text\": \"$icon 0\", \"tooltip\": \"No containers running\"}"
 else
-  # Join all container names with newlines in the tooltip
-  echo "{\"text\": \"$icon $container_count\", \"tooltip\": \"$container_names\"}"
+  # Escape newlines for valid JSON
+  container_names_escaped=$(echo "$container_names" | sed ':a;N;$!ba;s/\n/\\n/g')
+  echo "{\"text\": \"$icon $container_count\", \"tooltip\": \"$container_names_escaped\"}"
 fi

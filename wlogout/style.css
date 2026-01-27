@@ -1,3 +1,15 @@
+/* Theme: serene-nature - Auto-generated */
+:root {
+  --bg: #0D1B1E;
+  --fg: #F6FFF8;
+  --dark: #6B9080;
+  --light: #CCE3DE;
+  --accent: #CCE3DE;
+}
+
+
+
+
 * {
   background-image: none;
   font-family: "JetBrains Mono", "Noto Sans", sans-serif;

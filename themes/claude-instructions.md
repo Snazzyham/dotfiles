@@ -179,30 +179,38 @@ When a theme is applied, these files are updated:
 - `~/.config/hypr/themes/current.conf`
 - `~/.config/foot/foot.ini`
 - `~/.config/mako/config`
-- `~/.config/waybar/style.css` (CSS variables)
+- `~/.config/waybar/style.css` (direct color replacement - GTK CSS has no variables)
 - `~/.config/starship.toml` (palette added/updated)
-- `~/.config/fish/conf.d/theme.fish`
-- `~/.config/nvim/lua/colors/theme.lua`
+- `~/.config/fish/themes/current.fish` (sourced from config.fish, uses `set -g`)
+- `~/.config/nvim/lua/themes/current.lua` (full colorscheme with setup())
 - `~/.config/fuzzel/fuzzel.ini`
-- `~/.config/rofi/themes/colors.rasi` + individual themes
-- `~/.config/wlogout/style.css` (CSS variables)
+- `~/.config/rofi/themes/current.rasi` (gruvbox-style structure with theme colors)
+- `~/.config/rofi/config.rasi` (updated to use current.rasi)
+- `~/.tmux/themes/current.tmux`
+- `~/.config/wlogout/style.css` (direct color replacement)
+- `~/.config/gtk-3.0/colors.css` (Breeze-style GTK3 colors)
+- `~/.config/gtk-4.0/colors.css` (Breeze-style GTK4 colors)
 
-## Neovim Integration Note
+## Neovim Integration
 
-The theme generates `~/.config/nvim/lua/colors/theme.lua` which exports:
+The theme generates `~/.config/nvim/lua/themes/current.lua` which is a complete colorscheme.
+
+In init.lua, use:
 ```lua
-return {
-    colors = { bg = "#...", fg = "#...", ... },
-    name = "themename"
-}
+require("themes.current").setup()
 ```
 
-User's colorscheme should import this:
-```lua
-local ok, theme = pcall(require, 'colors.theme')
-if ok then
-    -- Use theme.colors.bg, theme.colors.fg, etc.
-end
-```
+This replaces any `vim.cmd("colorscheme ...")` line.
 
-Or they can modify their existing hamblue colorscheme to read from this file.
+## Rofi Integration
+
+**IMPORTANT**: Rofi uses `current.rasi` which follows the gruvbox-dark-hard structure but with theme colors. This preserves the gruvbox layout/style while using our colors.
+
+The theme file imports `gruvbox-common` for the layout. When creating new themes, always maintain this structure so rofi keeps its familiar look.
+
+## Tmux Integration
+
+The theme generates `~/.tmux/themes/current.tmux`. The user's `~/.tmux.conf` should have:
+```
+source-file "$HOME/.tmux/themes/current.tmux"
+```

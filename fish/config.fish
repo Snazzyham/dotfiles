@@ -3,7 +3,7 @@ set -x GOPATH $HOME/go
 set -x EDITOR nvim
 set -x VISUAL nvim
 
-set -x GTK_THEME Materia-dark
+set -x GTK_THEME Adwaita:dark
 
 set -x DEV_ENV dev
 
@@ -54,8 +54,9 @@ alias cat='bat --style header --style snip --style changes --style header'
 alias vplug='nvim +PlugInstall +qall'
 alias ff='nvim --cmd "lua vim.schedule(function() require(\"telescope.builtin\").find_files() end)"'
 alias fo='nvim --cmd "lua vim.schedule(function() require(\"telescope.builtin\").live_grep() end)"'
-alias vim='nvim'
+alias n='vifm'
 alias vold='/usr/bin/vim'
+alias vim='nvim'
 alias q="qlmanage -p"
 alias gd="cd Google\ Drive\ File\ Stream/My\ Drive"
 alias gt='cd ~/Documents/github'
@@ -136,5 +137,5 @@ fish_add_path /home/soham/.sst/bin
 set -gx VOLTA_HOME "$HOME/.volta"
 set -gx PATH "$VOLTA_HOME/bin" $PATH
 
-
-source ~/.config/fish/themes/kanagawabones.fish
+zoxide init fish | source
+source ~/.config/fish/themes/current.fish

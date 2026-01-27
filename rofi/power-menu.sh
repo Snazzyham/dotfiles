@@ -9,8 +9,8 @@ options="󰌾  lock
 choice=$(echo "$options" | rofi -dmenu -p "Power Menu")
 
 case $choice in
-  *lock) killall Discord || true && waylock && sleep 1 && hyprctl dispatch dpms off ;;
-  *suspend) waylock && systemctl suspend ;;
+  *lock) killall vesktop || true && swaylock -f && sleep 1 && hyprctl dispatch dpms off ;;
+  *suspend) swaylock -f && systemctl suspend ;;
   *logout) hyprctl dispatch exit 0 ;;
   *shutdown) systemctl poweroff ;;
   *reboot) systemctl reboot ;;

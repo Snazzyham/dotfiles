@@ -1,6 +1,6 @@
 * {
   font: "JetBrainsMono Nerd Font 13";
-  background: #1e1e2e;
-  foreground: #f38ba8;
-  selected: #f9e2af;
+  background: #000000;
+  foreground: #F4F4F9;
+  selected: #B8DBD9;
 }

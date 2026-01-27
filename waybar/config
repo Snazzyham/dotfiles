@@ -1,11 +1,13 @@
 {
     "layer": "top",
     "position": "top",
+    "height": 24,
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
-    "modules-right": ["custom/warp", "custom/docker", "custom/bluetooth", "tray", "pulseaudio", "custom/brightness", "network", "cpu", "memory", "battery", "clock"],
+    "modules-center": ["mpris"],
+    "modules-right": ["custom/docker", "tray", "cpu", "custom/memory", "pulseaudio", "clock"],
 
     "hyprland/window": {
-        "max-length": 100,
+        "max-length": 50,
         "separate-outputs": true
     },
 
@@ -13,85 +15,52 @@
         "disable-scroll": true,
         "all-outputs": true,
         "active-only": false,
-        "format": "{icon}",
-        "format-icons": {
-            "active": "",
-            "occupied": "",
-            "empty": "",
-            "urgent": "󰀦",
-            "default": ""
-        },
-        "persistent_workspaces": {
-            "1": [], "2": [], "3": [], "4": [], "5": []
+        "format": "{name}",
+        "persistent-workspaces": {
+            "*": 5
         }
     },
 
+    "mpris": {
+        "format": "{player_icon} {artist} - {title}",
+        "format-paused": "{player_icon} {artist} - {title}",
+        "player-icons": {
+            "default": "▶",
+            "spotify": "",
+            "firefox": ""
+        },
+        "max-length": 40
+    },
+
     "clock": {
-        "format": "󰥔  {:%a %d %b • %H:%M}"
+        "format": "{:%H:%M  %a %b %d}"
     },
 
     "pulseaudio": {
-        "format": "󰕾 {volume}%",
+        "format": " {volume}%",
+        "format-muted": " muted",
         "on-click": "pavucontrol"
     },
 
-    "cpu": {
-        "format": "󰻠 {usage}%"
-    },
-
-    "memory": {
-        "format": "󰍛 {percentage}%"
+    "custom/memory": {
+        "exec": "~/.config/waybar/scripts/memory.sh",
+        "return-type": "json",
+        "interval": 5
     },
 
     "tray": {
-        "icon_size": 18,
-        "spacing": 12
+        "icon-size": 16,
+        "spacing": 8
     },
 
-    "custom/bluetooth": {
-        "exec": "~/.config/waybar/scripts/bt.sh",
-        "interval": 5,
-        "on-click": "blueman-manager"
+    "cpu": {
+        "format": " {usage}%",
+        "interval": 5
     },
 
     "custom/docker": {
         "exec": "~/.config/waybar/scripts/docker.sh",
         "return-type": "json",
         "interval": 30
-    },
-    "custom/brightness": {
-	"exec": "~/.config/waybar/scripts/brightness.sh",
-	"interval": 5,
-	"format": "{}%"
-    },
-    "battery": {
-    "format": "{icon} {capacity}%",
-    "format-charging": "󰂄 {capacity}%",
-    "format-plugged": "󰂄 {capacity}%",
-    "format-alt": "{time} {icon}",
-    "format-icons": ["󰂎", "󰂑", "󰂔", "󰂗", "󰁿"],
-    "states": {
-        "good": 90,
-        "warning": 30,
-        "critical": 15
-    },
-    "tooltip": true,
-    "interval": 10
-    },
-    "network": {
-        "interface": "wlan0",
-        "format-wifi": "󰤨  {essid}",
-        "format-ethernet": "󰈀 {ifname}",
-        "format-disconnected": "󰤮 Disconnected",
-        "tooltip": true,
-        "tooltip-format": "{ifname} via {gwaddr}",
-        "on-click-right": "nm-connection-editor",
-        "on-click": "~/.config/waybar/scripts/wifi_details.sh"
-    },
-    "custom/warp": {
-      "exec": "~/.config/waybar/scripts/warp_status.sh",
-      "return-type": "json",
-      "interval": 5,
-      "on-click": "~/.config/waybar/scripts/warp_toggle.sh"
     }
 }

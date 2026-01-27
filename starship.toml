@@ -1,4 +1,4 @@
-palette="onedark"
+palette="serene-nature"
 
 ## FIRST LINE/ROW: Info & Status
 # First param ─┌
@@ -138,6 +138,12 @@ symbol = " "
 
 [nodejs]
 symbol = " "
+style = "color_3"
+
+[bun]
+detect_extensions = []
+detect_files = ["bun.lock", "bunfig.toml", "package.json"]
+symbol = " "
 style = "color_3"
 
 [package]
@@ -337,3 +343,42 @@ color_12 = "#2F4550"
 color_13 = "#2F4550" # Changed from #B8DBD9 to #2F4550
 color_14 = "#2F4550" # Changed from #F4F4F9 to #2F4550
 color_15 = "#2F4550" # Changed from #F4F4F9 to #2F4550
+
+[palettes.hamblue]
+color_fg = "#F4F4F9"
+color_bg = "#000000"
+color_0 = "#000000"
+color_1 = "#2F4550"
+color_2 = "#577787"
+color_3 = "#B8DBD9"
+color_4 = "#F4F4F9"
+color_5 = "#2F4550"
+color_6 = "#B8DBD9"
+color_7 = "#F4F4F9"
+cambridgeblue = "#B8DBD9"
+
+[palettes.harvest]
+color_fg = "#FFECD1"
+color_bg = "#001524"
+color_0 = "#001524"
+color_1 = "#15616D"
+color_2 = "#78290F"
+color_3 = "#FF7D00"
+color_4 = "#FFECD1"
+color_5 = "#15616D"
+color_6 = "#FF7D00"
+color_7 = "#FFECD1"
+cambridgeblue = "#FF7D00"
+
+[palettes.serene-nature]
+color_fg = "#F6FFF8"
+color_bg = "#0D1B1E"
+color_0 = "#0D1B1E"
+color_1 = "#6B9080"
+color_2 = "#A4C3B2"
+color_3 = "#CCE3DE"
+color_4 = "#F6FFF8"
+color_5 = "#6B9080"
+color_6 = "#CCE3DE"
+color_7 = "#F6FFF8"
+cambridgeblue = "#CCE3DE"

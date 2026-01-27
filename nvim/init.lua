@@ -49,7 +49,7 @@ vim.cmd([[hi MatchParen ctermfg=0 ctermbg=252 guifg=#ffffff guibg=#ff1100]])
 
 -- Colorscheme
 vim.opt.termguicolors = true
-vim.cmd("colorscheme base16-tomorrow-night")
+require("themes.current").setup()
 
 -- keymaps
 
