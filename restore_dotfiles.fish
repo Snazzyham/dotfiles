@@ -1,6 +1,6 @@
 #!/usr/bin/fish
 
-# Array of dotfiles to backup
+# Array of dotfiles to restore (destination paths)
 set dotfiles \
     "$HOME/.config/fish" \
     "$HOME/.config/nvim" \
@@ -15,47 +15,47 @@ set dotfiles \
     "$HOME/.config/swappy" \
     "$HOME/.config/rofi" \
     "$HOME/.config/fuzzel" \
-    "$HOME/.config/wlogout" 
+    "$HOME/.config/wlogout" \
+    "$HOME/.config/foot" \
+    "$HOME/.config/mako" \
+    "$HOME/.config/themes" \
+    "$HOME/.config/theme-apply.fish" \
+    "$HOME/.config/gtk-3.0" \
+    "$HOME/.config/gtk-4.0"
 
     # Add more files as needed
 
-# Function to backup a single file
-function backup_file
-    set source $argv[1]
-    set dest "./$(basename $source)"
-    
+# Function to restore a single file/directory
+function restore_file
+    set dest $argv[1]
+    set source "./$(basename $dest)"
+
     if test -e $source
+        # Create parent directory if needed
+        mkdir -p (dirname $dest)
+
         if test -d $source
             # It's a directory, so use rsync to copy
             rsync -av $source/ $dest/
-            echo "Backed up directory $source to $dest"
+            echo "Restored directory $source to $dest"
         else
             # It's a file, so use cp
             cp $source $dest
-            echo "Backed up file $source to $dest"
+            echo "Restored file $source to $dest"
         end
     else
-        echo "Warning: $source does not exist, skipping"
+        echo "Warning: $source does not exist in dotfiles, skipping"
     end
 end
 
-# Backup each file
+# Restore each file
 for file in $dotfiles
-    backup_file $file
+    restore_file $file
 end
 
-# Check if there are any changes
-if git status --porcelain | grep -q "^"
-    # Prompt for commit message
-    # read -P "Enter commit message: " commit_message
-    #
-    # # Commit changes
-    # git add -p .
-    # git commit -m "$commit_message"
-    #
-    # # Push changes
-    # git push origin 2024
-    echo "Please stage your commits and push them."
-else
-    echo "No changes to commit"
-end
+echo ""
+echo "Dotfiles restored! You may need to:"
+echo "  - Restart your terminal"
+echo "  - Run: source ~/.config/fish/config.fish"
+echo "  - Run: ~/.config/theme-apply.fish <theme-name>"
+echo "  - Restart apps like waybar, mako, etc."

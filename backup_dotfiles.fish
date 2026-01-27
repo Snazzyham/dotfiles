@@ -15,7 +15,13 @@ set dotfiles \
     "$HOME/.config/swappy" \
     "$HOME/.config/rofi" \
     "$HOME/.config/fuzzel" \
-    "$HOME/.config/wlogout" 
+    "$HOME/.config/wlogout" \
+    "$HOME/.config/foot" \
+    "$HOME/.config/mako" \
+    "$HOME/.config/themes" \
+    "$HOME/.config/theme-apply.fish" \
+    "$HOME/.config/gtk-3.0" \
+    "$HOME/.config/gtk-4.0"
 
     # Add more files as needed
 
