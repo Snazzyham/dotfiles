@@ -1,0 +1,89 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 24,
+    "modules-left": ["hyprland/workspaces", "hyprland/window"],
+    "modules-center": ["mpris"],
+    "modules-right": ["tray", "custom/bluetooth", "cpu", "custom/memory", "backlight", "pulseaudio", "battery", "clock"],
+
+    "hyprland/window": {
+        "max-length": 50,
+        "separate-outputs": true
+    },
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "active-only": false,
+        "format": "{name}",
+        "persistent-workspaces": {
+            "*": 5
+        }
+    },
+
+    "mpris": {
+        "format": "{player_icon} {artist} - {title}",
+        "format-paused": "{player_icon} {artist} - {title}",
+        "player-icons": {
+            "default": "▶",
+            "spotify": "",
+            "firefox": ""
+        },
+        "max-length": 40
+    },
+
+    "clock": {
+        "format": "{:%H:%M  %a %b %d}"
+    },
+
+    "pulseaudio": {
+        "format": "󰕾 {volume}%",
+        "format-muted": "󰖁 muted",
+        "format-icons": {
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "on-click": "pavucontrol"
+    },
+
+    "custom/memory": {
+        "exec": "~/.config/waybar/scripts/memory.sh",
+        "return-type": "json",
+        "interval": 5
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 8
+    },
+
+    "cpu": {
+        "format": " {usage}%",
+        "interval": 5
+    },
+
+    "custom/bluetooth": {
+        "exec": "~/.config/waybar/scripts/bt.sh",
+        "interval": 5,
+        "on-click": "blueman-manager"
+    },
+
+    "battery": {
+        "interval": 30,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "󰚥 {capacity}%",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    },
+
+    "backlight": {
+        "device": "amdgpu_bl1",
+        "format": "󰃟 {percent}%",
+        "format-icons": ["󰃞", "󰃟", "󰃠"],
+        "on-scroll-up": "brightnessctl set 5%+",
+        "on-scroll-down": "brightnessctl set 5%-"
+    }
+}

@@ -1,5 +1,26 @@
 #!/usr/bin/fish
 
+# Prompt for machine type
+echo "Which machine are you restoring to?"
+echo "  1) Desktop"
+echo "  2) Laptop"
+echo ""
+read -P "Enter choice [1/2]: " choice
+
+switch $choice
+    case 1 d D desktop Desktop
+        set machine_type "desktop"
+    case 2 l L laptop Laptop
+        set machine_type "laptop"
+    case '*'
+        echo "Invalid choice. Defaulting to desktop."
+        set machine_type "desktop"
+end
+
+echo ""
+echo "Restoring dotfiles for: $machine_type"
+echo "=================================="
+
 # Array of dotfiles to restore (destination paths)
 set dotfiles \
     "$HOME/.config/fish" \
@@ -22,8 +43,6 @@ set dotfiles \
     "$HOME/.config/theme-apply.fish" \
     "$HOME/.config/gtk-3.0" \
     "$HOME/.config/gtk-4.0"
-
-    # Add more files as needed
 
 # Function to restore a single file/directory
 function restore_file
@@ -48,14 +67,45 @@ function restore_file
     end
 end
 
-# Restore each file
+# Restore each shared file
 for file in $dotfiles
     restore_file $file
 end
 
 echo ""
-echo "Dotfiles restored! You may need to:"
+echo "Applying machine-specific configs for: $machine_type"
+echo "---------------------------------------------------"
+
+# Machine-specific config handling
+# 1. Hyprland machine.conf
+if test -f "./hypr/machines/$machine_type.conf"
+    cp "./hypr/machines/$machine_type.conf" "$HOME/.config/hypr/machine.conf"
+    echo "  [hypr]   -> Copied $machine_type.conf to machine.conf"
+else
+    # Create empty machine.conf if no specific config exists
+    touch "$HOME/.config/hypr/machine.conf"
+    echo "  [hypr]   -> Created empty machine.conf (no machine-specific config found)"
+end
+
+# 2. Foot terminal config
+if test -f "./foot/machines/$machine_type.ini"
+    cp "./foot/machines/$machine_type.ini" "$HOME/.config/foot/foot.ini"
+    echo "  [foot]   -> Copied $machine_type.ini to foot.ini"
+end
+
+# 3. Waybar config
+if test -f "./waybar/machines/$machine_type.json"
+    cp "./waybar/machines/$machine_type.json" "$HOME/.config/waybar/config"
+    echo "  [waybar] -> Copied $machine_type.json to config"
+end
+
+echo ""
+echo "=================================="
+echo "Dotfiles restored for $machine_type!"
+echo ""
+echo "You may need to:"
 echo "  - Restart your terminal"
 echo "  - Run: source ~/.config/fish/config.fish"
 echo "  - Run: ~/.config/theme-apply.fish <theme-name>"
-echo "  - Restart apps like waybar, mako, etc."
+echo "  - Run: hyprctl reload"
+echo "  - Restart waybar: killall waybar && waybar &"

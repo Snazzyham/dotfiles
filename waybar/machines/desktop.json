@@ -1,0 +1,66 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 24,
+    "modules-left": ["hyprland/workspaces", "hyprland/window"],
+    "modules-center": ["mpris"],
+    "modules-right": ["custom/docker", "tray", "cpu", "custom/memory", "pulseaudio", "clock"],
+
+    "hyprland/window": {
+        "max-length": 50,
+        "separate-outputs": true
+    },
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "active-only": false,
+        "format": "{name}",
+        "persistent-workspaces": {
+            "*": 5
+        }
+    },
+
+    "mpris": {
+        "format": "{player_icon} {artist} - {title}",
+        "format-paused": "{player_icon} {artist} - {title}",
+        "player-icons": {
+            "default": "▶",
+            "spotify": "",
+            "firefox": ""
+        },
+        "max-length": 40
+    },
+
+    "clock": {
+        "format": "{:%H:%M  %a %b %d}"
+    },
+
+    "pulseaudio": {
+        "format": " {volume}%",
+        "format-muted": "󰝟 muted",
+        "on-click": "pavucontrol"
+    },
+
+    "custom/memory": {
+        "exec": "~/.config/waybar/scripts/memory.sh",
+        "return-type": "json",
+        "interval": 5
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 8
+    },
+
+    "cpu": {
+        "format": " {usage}%",
+        "interval": 5
+    },
+
+    "custom/docker": {
+        "exec": "~/.config/waybar/scripts/docker.sh",
+        "return-type": "json",
+        "interval": 30
+    }
+}
