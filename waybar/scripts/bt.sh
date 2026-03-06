@@ -1,9 +1,15 @@
 #!/usr/bin/env bash
 
-# Example: Show connected device name or 'Off' if none
-device=$(bluetoothctl info | grep "Name:" | cut -d ' ' -f2-)
-if [ -z "$device" ]; then
-  echo "  Off"  # or whatever icon you like
+# Get all connected device names
+mapfile -t devices < <(echo -e "devices Connected\nquit" | bluetoothctl 2>/dev/null | grep "^Device" | cut -d ' ' -f3-)
+
+count=${#devices[@]}
+
+if [ "$count" -eq 0 ]; then
+  echo '{"text": "󰂲 Off"}'
+elif [ "$count" -eq 1 ]; then
+  echo "{\"text\": \"󰂯 ${devices[0]}\"}"
 else
-  echo "  $device"
+  tooltip=$(IFS=', '; echo "${devices[*]}")
+  echo "{\"text\": \"󰂯 ${count} Devices\", \"tooltip\": \"${tooltip}\"}"
 fi
