@@ -1,4 +1,26 @@
-#!/usr/bin/fish
+#!/usr/bin/env fish
+
+# Local backup configuration
+set BACKUP_BASE "$HOME/.config/dotfiles-backup"
+set BACKUP_DIR "$BACKUP_BASE/latest"
+
+# Remove old backup if exists, then create new
+if test -d "$BACKUP_BASE"
+    echo "Removing previous backup..."
+    rm -rf "$BACKUP_BASE"
+end
+
+mkdir -p "$BACKUP_DIR"
+echo "Creating local backup at: $BACKUP_DIR"
+echo "=================================="
+
+# Backup current ~/.config state before any changes
+cp -r ~/.config/hypr "$BACKUP_DIR/" 2>/dev/null
+cp -r ~/.config/waybar "$BACKUP_DIR/" 2>/dev/null
+cp -r ~/.config/foot "$BACKUP_DIR/" 2>/dev/null
+cp -r ~/.config/fish "$BACKUP_DIR/" 2>/dev/null
+echo "✓ Local backup complete"
+echo ""
 
 # Prompt for machine type
 echo "Which machine are you backing up from?"
@@ -98,6 +120,9 @@ end
 echo ""
 echo "=================================="
 echo "Backup complete for $machine_type!"
+echo ""
+echo "Local backup available at: $BACKUP_DIR"
+echo "(This will be overwritten on next backup)"
 echo ""
 
 # Check if there are any changes

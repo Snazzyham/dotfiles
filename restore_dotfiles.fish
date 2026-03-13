@@ -1,4 +1,18 @@
-#!/usr/bin/fish
+#!/usr/bin/env fish
+
+# Local backup configuration (backup before restore in case something goes wrong)
+set RESTORE_BACKUP_DIR "$HOME/.config/dotfiles-backup/pre-restore-$(date +%Y%m%d-%H%M%S)"
+
+# Create backup of current state before restoring
+echo "Creating safety backup before restore..."
+echo "=================================="
+mkdir -p "$RESTORE_BACKUP_DIR"
+cp -r ~/.config/hypr "$RESTORE_BACKUP_DIR/" 2>/dev/null
+cp -r ~/.config/waybar "$RESTORE_BACKUP_DIR/" 2>/dev/null
+cp -r ~/.config/foot "$RESTORE_BACKUP_DIR/" 2>/dev/null
+cp -r ~/.config/fish "$RESTORE_BACKUP_DIR/" 2>/dev/null
+echo "✓ Safety backup created at: $RESTORE_BACKUP_DIR"
+echo ""
 
 # Prompt for machine type
 echo "Which machine are you restoring to?"
@@ -102,6 +116,9 @@ end
 echo ""
 echo "=================================="
 echo "Dotfiles restored for $machine_type!"
+echo ""
+echo "Safety backup available at: $RESTORE_BACKUP_DIR"
+echo "(If something broke, you can restore from here manually)"
 echo ""
 echo "You may need to:"
 echo "  - Restart your terminal"
