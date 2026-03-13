@@ -3,8 +3,6 @@ set -x GOPATH $HOME/go
 set -x EDITOR nvim
 set -x VISUAL nvim
 
-set -x GTK_THEME Adwaita:dark
-
 set -x DEV_ENV dev
 
 set -x XDG_CONFIG_HOME /home/soham/.config

@@ -1,4 +1,4 @@
-palette="cozy-cabin"
+palette="serene-nature"
 
 ## FIRST LINE/ROW: Info & Status
 # First param ─┌
@@ -408,3 +408,42 @@ color_5 = "#593D3B"
 color_6 = "#AB947E"
 color_7 = "#C3A995"
 cambridgeblue = "#AB947E"
+
+[palettes.pine]
+color_fg = "#F7F7F2"
+color_bg = "#1A2D29"
+color_0 = "#1A2D29"
+color_1 = "#254439"
+color_2 = "#89928E"
+color_3 = "#B6BDB9"
+color_4 = "#F7F7F2"
+color_5 = "#254439"
+color_6 = "#B6BDB9"
+color_7 = "#F7F7F2"
+cambridgeblue = "#B6BDB9"
+
+[palettes.deep-sea]
+color_fg = "#E0E1DD"
+color_bg = "#0D1B2A"
+color_0 = "#0D1B2A"
+color_1 = "#1B263B"
+color_2 = "#415A77"
+color_3 = "#778DA9"
+color_4 = "#E0E1DD"
+color_5 = "#1B263B"
+color_6 = "#778DA9"
+color_7 = "#E0E1DD"
+cambridgeblue = "#778DA9"
+
+[palettes.earthy-green]
+color_fg = "#CAD2C5"
+color_bg = "#2F3E46"
+color_0 = "#2F3E46"
+color_1 = "#354F52"
+color_2 = "#52796F"
+color_3 = "#84A98C"
+color_4 = "#CAD2C5"
+color_5 = "#354F52"
+color_6 = "#84A98C"
+color_7 = "#CAD2C5"
+cambridgeblue = "#84A98C"
