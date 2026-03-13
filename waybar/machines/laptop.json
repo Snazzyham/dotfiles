@@ -4,7 +4,7 @@
     "height": 24,
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-center": ["mpris"],
-    "modules-right": ["tray", "custom/bluetooth", "cpu", "custom/memory", "backlight", "pulseaudio", "battery", "clock"],
+    "modules-right": ["tray", "custom/bluetooth", "network", "cpu", "custom/memory", "backlight", "pulseaudio", "battery", "clock"],
 
     "hyprland/window": {
         "max-length": 50,
@@ -64,7 +64,17 @@
     "custom/bluetooth": {
         "exec": "~/.config/waybar/scripts/bt.sh",
         "interval": 5,
+        "return-type": "json",
         "on-click": "blueman-manager"
+    },
+
+    "network": {
+        "interface": "wlan0",
+        "format-wifi": "󰤨 {essid}",
+        "format-disconnected": "󰤭 Off",
+        "format-ethernet": "󰈀 {ipaddr}",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+        "on-click": "~/.config/waybar/scripts/wifi_details.sh"
     },
 
     "battery": {
