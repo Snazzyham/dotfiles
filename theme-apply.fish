@@ -848,6 +848,9 @@ function apply_hyprlock
 
     log_success "hyprlock config updated: $hyprlock_config"
 end
+
+# Update wlogout - injects CSS variables into wlogout style
+function apply_wlogout
     set -l wlogout_style "$HOME/.config/wlogout/style.css"
 
     if not test -f $wlogout_style
