@@ -4,7 +4,7 @@
     "height": 24,
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-center": ["mpris"],
-    "modules-right": ["custom/docker", "tray", "cpu", "custom/memory", "pulseaudio", "clock"],
+    "modules-right": ["custom/bluetooth", "custom/docker", "tray", "cpu", "custom/memory", "custom/audio-output", "pulseaudio", "clock"],
 
     "hyprland/window": {
         "max-length": 50,
@@ -30,6 +30,14 @@
             "firefox": ""
         },
         "max-length": 40
+    },
+
+
+    "custom/bluetooth": {
+        "exec": "~/.config/waybar/scripts/bt.sh",
+        "return-type": "json",
+        "interval": 5,
+        "on-click": "blueman-manager"
     },
 
     "clock": {
@@ -62,5 +70,12 @@
         "exec": "~/.config/waybar/scripts/docker.sh",
         "return-type": "json",
         "interval": 30
+    },
+
+    "custom/audio-output": {
+        "exec": "~/.config/waybar/scripts/audio-output.sh",
+        "return-type": "json",
+        "interval": 3,
+        "on-click": "~/.config/waybar/scripts/audio-output.sh --toggle"
     }
 }
