@@ -64,6 +64,7 @@
     "custom/bluetooth": {
         "exec": "~/.config/waybar/scripts/bt.sh",
         "interval": 5,
+        "return-type": "json",
         "on-click": "blueman-manager"
     },
 
