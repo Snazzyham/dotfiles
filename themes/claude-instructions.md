@@ -242,9 +242,7 @@ For light themes (bg near #FFFFFF):
 
 When a theme is applied, these files are updated:
 - `~/.config/hypr/themes/current.conf`
-- `~/.config/hypr/hyprland.conf` (GTK_THEME environment variable updated for light/dark)
-- `~/.config/hypr/hyprpaper.conf` (wallpaper with theme background color)
-- `~/.config/hypr/wallpapers/theme_bg_*.png` (solid color wallpaper generated from theme)
+- `~/.config/hypr/hyprland.conf` (GTK_THEME environment variable and misc { background_color } updated for light/dark)
 - `~/.config/foot/foot.ini`
 - `~/.config/mako/config`
 - `~/.config/waybar/style.css` (direct color replacement - GTK CSS has no variables)
@@ -263,6 +261,18 @@ When a theme is applied, these files are updated:
 
 **System Settings (gsettings):**
 - `org.gnome.desktop.interface color-scheme` set to `prefer-dark` or `prefer-light` based on theme type
+
+## Electron Apps (Discord, Zen Browser, etc.)
+
+**Good news:** You do NOT need to log out! Just **quit and reopen** the apps.
+
+Electron-based apps (Discord, Slack, VS Code, Zen browser, Spotify, etc.) cache the GTK theme when they start. To see theme changes:
+
+1. Quit the app completely (not just minimize)
+2. Reopen it
+3. It will pick up the new `GTK_THEME` environment variable
+
+**Note:** Some stubborn apps may need 2-3 restarts or may require closing all windows first. But a full logout is usually not necessary.
 
 ## Neovim Integration
 
