@@ -84,6 +84,10 @@ bright_*    = lighter/more saturated versions of the above
 # Theme Name
 # Brief description
 
+# Theme type (optional - defaults to dark if not specified)
+# Use type=light for light themes, omit or use type=dark for dark themes
+type=dark
+
 # Core palette (REQUIRED)
 bg=000000
 fg=F4F4F9
@@ -162,34 +166,113 @@ bright_white=FFFFFF
 
 **Result:** All contrasts pass. Create theme file.
 
-## Quick Contrast Reference
+## Theme Type: Dark vs Light
 
-For dark themes (bg near #000000):
-- `fg` should be #D0D0D0 or lighter
-- `medium` should be #707070 or lighter for readable comments
-- `light` accent should be #909090 or lighter (but usually more saturated)
+The theme system supports both dark and light themes. This is controlled by an optional `type` field in theme files.
+
+### Default Behavior
+
+- If no `type` is specified, the theme is treated as **dark**
+- All existing themes (without `type`) continue to work as dark themes
+
+### Declaring Theme Type
+
+Add `type=light` for light themes:
+
+```conf
+# LightTheme Example
+# A light-colored theme
+
+type=light
+bg=FFFFFF
+fg=2D2D2D
+...
+```
+
+When `type=light` is set, the system will:
+- Set Neovim to light mode
+- Change system color-scheme to prefer-light
+- Switch GTK_THEME to `Breeze` (light)
+- Disable prefer-dark-theme in GTK settings
+
+**Note:** Environment variables require app restart. New apps will use the light theme, existing apps need to be restarted (MacOS-style behavior).
+
+## Creating Light Themes
+
+Light themes use inverted logic compared to dark themes. When creating a light theme:
+
+### Color Roles for Light Themes
+
+| Color | Role | Typical Source |
+|-------|------|----------------|
+| `bg` | Background | Lightest color, usually near-white for light themes |
+| `fg` | Foreground/text | Darkest color, high contrast against bg |
+| `dark` | Light accent | Second lightest, used for borders, subtle surfaces |
+| `medium` | Medium accent | Mid-tone gray, used for secondary text, comments |
+| `light` | Accent/highlight | Vibrant accent color, used for focus states |
+
+### Contrast Requirements for Light Themes
+
+**WCAG AA minimum contrast ratios:**
+- Normal text: 4.5:1 against background
+- Large text: 3:1 against background
+- UI components: 3:1 against adjacent colors
+
+**Always verify for light themes:**
+```
+fg against bg:     Must be ≥ 7:1 (ideal) or ≥ 4.5:1 (minimum)
+light against bg:  Must be ≥ 4.5:1 (accent should pop)
+medium against bg: Must be ≥ 3:1 (secondary text readable)
+dark against bg:   Must be ≥ 1.5:1 (subtle but visible)
+```
+
+**Tools to check contrast:**
+- https://webaim.org/resources/contrastchecker/
+- https://coolors.co/contrast-checker
+
+### Quick Reference for Light Themes
 
 For light themes (bg near #FFFFFF):
 - `fg` should be #303030 or darker
-- Adjust all colors accordingly (invert the logic)
+- `medium` should be #707070 or darker for readable comments
+- `light` accent should work well on white (often vibrant blues, greens, oranges)
+- `dark` should be distinguishable from white but subtle (light grays around #E0E0E0)
 
 ## Files Modified by theme-apply.fish
 
 When a theme is applied, these files are updated:
 - `~/.config/hypr/themes/current.conf`
+- `~/.config/hypr/hyprland.conf` (GTK_THEME environment variable and misc { background_color } updated for light/dark)
 - `~/.config/foot/foot.ini`
 - `~/.config/mako/config`
 - `~/.config/waybar/style.css` (direct color replacement - GTK CSS has no variables)
 - `~/.config/starship.toml` (palette added/updated)
 - `~/.config/fish/themes/current.fish` (sourced from config.fish, uses `set -g`)
-- `~/.config/nvim/lua/themes/current.lua` (full colorscheme with setup())
+- `~/.config/nvim/lua/themes/current.lua` (full colorscheme with setup(), background mode set)
 - `~/.config/fuzzel/fuzzel.ini`
 - `~/.config/rofi/themes/current.rasi` (gruvbox-style structure with theme colors)
 - `~/.config/rofi/config.rasi` (updated to use current.rasi)
 - `~/.tmux/themes/current.tmux`
 - `~/.config/wlogout/style.css` (direct color replacement)
 - `~/.config/gtk-3.0/colors.css` (Breeze-style GTK3 colors)
+- `~/.config/gtk-3.0/settings.ini` (prefer-dark-theme setting updated)
 - `~/.config/gtk-4.0/colors.css` (Breeze-style GTK4 colors)
+- `~/.config/gtk-4.0/settings.ini` (prefer-dark-theme setting updated)
+
+**System Settings (gsettings):**
+- `org.gnome.desktop.interface color-scheme` set to `prefer-dark` or `prefer-light` based on theme type
+
+## Electron Apps (Discord, Zen Browser, etc.)
+
+**Good news:** You do NOT need to log out! Just **quit and reopen** the apps.
+
+Electron-based apps (Discord, Slack, VS Code, Zen browser, Spotify, etc.) cache the GTK theme when they start. To see theme changes:
+
+1. Quit the app completely (not just minimize)
+2. Reopen it
+3. It will pick up the new `GTK_THEME` environment variable
+
+**Note:** Some stubborn apps may need 2-3 restarts or may require closing all windows first. But a full logout is usually not necessary.
 
 ## Neovim Integration
 
