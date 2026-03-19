@@ -13,6 +13,6 @@ else
     # Window is tiled, make it floating with focus mode dimensions
     hyprctl dispatch togglefloating
     sleep 0.1  # Small delay to ensure toggle completes
-    hyprctl dispatch resizeactive exact 60% 100%
+    hyprctl dispatch resizeactive exact 60% 90%
     hyprctl dispatch centerwindow
 fi

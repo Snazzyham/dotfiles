@@ -1,4 +1,4 @@
-palette="serene-nature"
+palette="gruvbox-dark-hard"
 
 ## FIRST LINE/ROW: Info & Status
 # First param ─┌
@@ -447,3 +447,29 @@ color_5 = "#354F52"
 color_6 = "#84A98C"
 color_7 = "#CAD2C5"
 cambridgeblue = "#84A98C"
+
+[palettes.gruvbox-dark-hard]
+color_fg = "#ebdbb2"
+color_bg = "#1d2021"
+color_0 = "#1d2021"
+color_1 = "#3c3836"
+color_2 = "#7c6f64"
+color_3 = "#fe8019"
+color_4 = "#ebdbb2"
+color_5 = "#3c3836"
+color_6 = "#fe8019"
+color_7 = "#ebdbb2"
+cambridgeblue = "#fe8019"
+
+[palettes.kanagawa]
+color_fg = "#dcd7ba"
+color_bg = "#1f1f28"
+color_0 = "#1f1f28"
+color_1 = "#2a2a37"
+color_2 = "#727169"
+color_3 = "#7fb4ca"
+color_4 = "#dcd7ba"
+color_5 = "#2a2a37"
+color_6 = "#7fb4ca"
+color_7 = "#dcd7ba"
+cambridgeblue = "#7fb4ca"
