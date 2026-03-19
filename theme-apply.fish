@@ -84,17 +84,32 @@ function load_theme
         return 1
     end
 
-    # First pass: load raw values
+    # Reset theme type to default
+    set -g THEME_TYPE "dark"
+
+    # First pass: load raw values including type
     for line in (grep -v '^#' $theme_file | grep -v '^$' | grep '=')
         set -l key (echo $line | cut -d'=' -f1)
         set -l value (echo $line | cut -d'=' -f2-)
-        set -g "THEME_$key" $value
+        
+        # Check for theme type
+        if test "$key" = "type"
+            set -g THEME_TYPE $value
+            log_info "Theme type: $THEME_TYPE"
+        else
+            set -g "THEME_$key" $value
+        end
     end
 
     # Second pass: resolve variable references
     for line in (grep -v '^#' $theme_file | grep -v '^$' | grep '=')
         set -l key (echo $line | cut -d'=' -f1)
         set -l value (echo $line | cut -d'=' -f2-)
+
+        # Skip type field (it's already set)
+        if test "$key" = "type"
+            continue
+        end
 
         # If value starts with $, resolve it
         if string match -q '$*' $value
@@ -247,7 +262,24 @@ function apply_waybar
     sed -i '/#window\s*{/,/\}/s/color: #[0-9a-fA-F]\{6\}/color: #'(get_color medium)'/' $waybar_style
     sed -i '/#mpris\s*{/,/\}/s/color: #[0-9a-fA-F]\{6\}/color: #'(get_color medium)'/' $waybar_style
 
-    # clock highlight
+    # Fix hardcoded colors in system modules - use theme fg color
+    # These modules were previously hardcoded to #F4F4F9
+    sed -i '/#cpu,/,/\}/s/color: #[0-9a-fA-F]\{6\}/color: #'(get_color fg)'/' $waybar_style
+    sed -i '/#custom-memory,/,/\}/s/color: #[0-9a-fA-F]\{6\}/color: #'(get_color fg)'/' $waybar_style
+    sed -i '/#pulseaudio,/,/\}/s/color: #[0-9a-fA-F]\{6\}/color: #'(get_color fg)'/' $waybar_style
+    sed -i '/#clock,/,/\}/s/color: #[0-9a-fA-F]\{6\}/color: #'(get_color fg)'/' $waybar_style
+    sed -i '/#custom-bluetooth,/,/\}/s/color: #[0-9a-fA-F]\{6\}/color: #'(get_color fg)'/' $waybar_style
+    sed -i '/#custom-docker {/,/\}/s/color: #[0-9a-fA-F]\{6\}/color: #'(get_color fg)'/' $waybar_style
+
+    # Also fix individual module selectors (in case they're defined separately)
+    sed -i '/#cpu\s*{/,/\}/s/color: #[0-9a-fA-F]\{6\}/color: #'(get_color fg)'/' $waybar_style
+    sed -i '/#custom-memory\s*{/,/\}/s/color: #[0-9a-fA-F]\{6\}/color: #'(get_color fg)'/' $waybar_style
+    sed -i '/#pulseaudio\s*{/,/\}/s/color: #[0-9a-fA-F]\{6\}/color: #'(get_color fg)'/' $waybar_style
+    sed -i '/#custom-bluetooth\s*{/,/\}/s/color: #[0-9a-fA-F]\{6\}/color: #'(get_color fg)'/' $waybar_style
+    sed -i '/#custom-docker\s*{/,/\}/s/color: #[0-9a-fA-F]\{6\}/color: #'(get_color fg)'/' $waybar_style
+    sed -i '/#custom-audio-output\s*{/,/\}/s/color: #[0-9a-fA-F]\{6\}/color: #'(get_color fg)'/' $waybar_style
+
+    # clock highlight (keep as light color for emphasis)
     sed -i '/#clock\s*{/,/\}/s/color: #[0-9a-fA-F]\{6\}/color: #'(get_color light)'/' $waybar_style
 
     # tooltip
@@ -399,7 +431,7 @@ function apply_nvim
     echo "function M.setup()" >> $nvim_theme
     echo "    vim.cmd('hi clear')" >> $nvim_theme
     echo "    if vim.fn.exists('syntax_on') then vim.cmd('syntax reset') end" >> $nvim_theme
-    echo "    vim.o.background = 'dark'" >> $nvim_theme
+    echo "    vim.o.background = '$THEME_TYPE'" >> $nvim_theme
     echo "    vim.o.termguicolors = true" >> $nvim_theme
     echo "    vim.g.colors_name = 'current'" >> $nvim_theme
     echo "" >> $nvim_theme
@@ -881,6 +913,129 @@ function apply_wlogout
     log_success "wlogout style updated"
 end
 
+# Update system theme settings (gsettings, GTK, Hyprland)
+function apply_system_theme
+    log_info "Applying system theme settings..."
+    
+    # Set gsettings color scheme
+    if test "$THEME_TYPE" = "light"
+        gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
+        log_success "System color-scheme set to prefer-light"
+    else
+        gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+        log_success "System color-scheme set to prefer-dark"
+    end
+    
+    # Update GTK settings
+    apply_gtk_settings
+    
+    # Update Hyprland environment
+    apply_hyprland_env
+end
+
+# Update GTK settings.ini files for light/dark mode
+function apply_gtk_settings
+    log_info "Updating GTK settings..."
+    
+    for gtk_ver in 3.0 4.0
+        set -l settings_file "$HOME/.config/gtk-$gtk_ver/settings.ini"
+        
+        if not test -f $settings_file
+            log_warn "GTK $gtk_ver settings.ini not found, skipping"
+            continue
+        end
+        
+        if test "$THEME_TYPE" = "light"
+            # Light theme: disable prefer-dark-theme
+            sed -i 's/^gtk-application-prefer-dark-theme=.*/gtk-application-prefer-dark-theme=0/' $settings_file
+            log_success "GTK $gtk_ver: prefer-dark-theme disabled"
+        else
+            # Dark theme: enable prefer-dark-theme
+            sed -i 's/^gtk-application-prefer-dark-theme=.*/gtk-application-prefer-dark-theme=1/' $settings_file
+            log_success "GTK $gtk_ver: prefer-dark-theme enabled"
+        end
+    end
+end
+
+# Update Hyprland GTK_THEME environment variable
+function apply_hyprland_env
+    set -l hyprland_conf "$HOME/.config/hypr/hyprland.conf"
+    
+    if not test -f $hyprland_conf
+        log_warn "Hyprland config not found, skipping environment update"
+        return
+    end
+    
+    log_info "Updating Hyprland GTK_THEME..."
+    
+    if test "$THEME_TYPE" = "light"
+        # Light theme: use Breeze (light)
+        sed -i 's/^env = GTK_THEME,Breeze-Dark$/env = GTK_THEME,Breeze/' $hyprland_conf
+        sed -i 's/^env = GTK_THEME,Breeze$/env = GTK_THEME,Breeze/' $hyprland_conf
+        log_success "Hyprland GTK_THEME set to Breeze (light)"
+    else
+        # Dark theme: use Breeze-Dark
+        sed -i 's/^env = GTK_THEME,Breeze$/env = GTK_THEME,Breeze-Dark/' $hyprland_conf
+        sed -i 's/^env = GTK_THEME,Breeze-Dark$/env = GTK_THEME,Breeze-Dark/' $hyprland_conf
+        log_success "Hyprland GTK_THEME set to Breeze-Dark"
+    end
+    
+    # Reload hyprland config if running
+    if pgrep -x Hyprland > /dev/null
+        hyprctl reload > /dev/null 2>&1
+        log_success "Hyprland config reloaded (new apps will use updated GTK_THEME)"
+    end
+end
+
+# Update hyprpaper wallpaper with theme background color
+function apply_hyprpaper
+    set -l hyprpaper_conf "$HOME/.config/hypr/hyprpaper.conf"
+    set -l wallpaper_dir "$HOME/.config/hypr/wallpapers"
+    set -l bg_color (get_color bg)
+    
+    log_info "Setting up wallpaper..."
+    
+    # Create wallpapers directory if it doesn't exist
+    mkdir -p $wallpaper_dir
+    
+    # Create a solid color wallpaper using ImageMagick if available
+    set -l wallpaper_file "$wallpaper_dir/theme_bg_$bg_color.png"
+    
+    if which convert > /dev/null 2>&1
+        # Generate solid color wallpaper using ImageMagick
+        convert -size 1920x1080 xc:"#$bg_color" $wallpaper_file
+        log_success "Generated wallpaper: $wallpaper_file"
+    else
+        # Fallback: check if a generic solid color image exists
+        if not test -f $wallpaper_file
+            log_warn "ImageMagick not available, cannot generate wallpaper"
+            log_warn "Install ImageMagick or manually create a solid color image at: $wallpaper_file"
+            return
+        end
+    end
+    
+    # Create/update hyprpaper config
+    echo "# Hyprpaper configuration - Auto-generated by theme-apply.fish" > $hyprpaper_conf
+    echo "# Theme: $THEME_NAME" >> $hyprpaper_conf
+    echo "" >> $hyprpaper_conf
+    echo "preload = $wallpaper_file" >> $hyprpaper_conf
+    echo "wallpaper = ,$wallpaper_file" >> $hyprpaper_conf
+    
+    log_success "Hyprpaper config updated: $hyprpaper_conf"
+    
+    # Reload hyprpaper if running
+    if pgrep -x hyprpaper > /dev/null
+        # Kill and restart hyprpaper to apply new wallpaper
+        killall hyprpaper 2>/dev/null
+        sleep 0.5
+        hyprpaper &
+        disown
+        log_success "Hyprpaper restarted with new wallpaper"
+    else
+        log_info "Start hyprpaper to see the wallpaper: hyprpaper &"
+    end
+end
+
 # Main function
 function main
     # Parse arguments
@@ -925,7 +1080,9 @@ function main
     end
 
     # Apply to all applications
+    apply_system_theme
     apply_hyprland
+    apply_hyprpaper
     apply_foot
     apply_mako
     apply_waybar
