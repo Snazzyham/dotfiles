@@ -1,0 +1,90 @@
+[mgr]
+show_hidden = true
+sort_by = "mtime"
+sort_reverse = true
+
+[plugin]
+preloaders = [
+  { mime = "image/*", run = "image" },
+]
+
+[opener]
+# Images
+image_view = [
+  { run = 'imv "$@"', orphan = true, desc = "View Image (imv)" }
+]
+
+# Video / Audio
+media_view = [
+  { run = 'mpv "$@"', orphan = true, desc = "Play Media (mpv)" }
+]
+
+# PDFs
+pdf_view = [
+  { run = 'mupdf "$@"', orphan = true, desc = "View PDF (mupdf)" }
+]
+
+# Office
+office_write = [
+  { run = 'libreoffice --writer "$@"', orphan = true, desc = "Open in LibreOffice Writer" },
+]
+office_calc = [
+  { run = 'libreoffice --calc "$@"', orphan = true, desc = "Open in LibreOffice Calc" },
+]
+
+# Archives
+extract = [
+  { run = 'unar "$@"', desc = "Extract here (unar)" },
+  { run = 'unzip "$@"', desc = "Extract here (unzip)" },
+]
+
+# Text
+text_edit = [
+  { run = 'nvim "$@"', block = true, desc = "Edit Text (Neovim)" }
+]
+text_view = [
+  { run = 'bat --paging=always "$@"', block = true, desc = "View Text (bat)" },
+  { run = 'less "$@"', block = true }
+]
+
+[open]
+rules = [
+  # Images
+  { mime = "image/*", use = "image_view" },
+  
+  # Videos
+  { mime = "video/*", use = "media_view" },
+  
+  # Audio
+  { mime = "audio/*", use = "media_view" },
+  
+  # PDFs
+  { mime = "application/pdf", use = "pdf_view" },
+  
+  # Office
+  { name = "*.docx", use = "office_write" },
+  { name = "*.doc", use = "office_write" },
+  { name = "*.odt", use = "office_write" },
+  { name = "*.csv", use = "office_calc" },
+  { name = "*.xlsx", use = "office_calc" },
+  { name = "*.xls", use = "office_calc" },
+  { name = "*.ods", use = "office_calc" },
+
+  # Archives
+  { mime = "application/zip", use = "extract" },
+  { mime = "application/x-tar", use = "extract" },
+  { mime = "application/x-7z-compressed", use = "extract" },
+  { mime = "application/x-rar", use = "extract" },
+  { name = "*.zip", use = "extract" },
+  { name = "*.tar*", use = "extract" },
+  { name = "*.7z", use = "extract" },
+  { name = "*.rar", use = "extract" },
+
+  # Text files
+  { mime = "text/*", use = "text_edit" },
+  { name = "*.md", use = "text_edit" },
+  { name = "*.toml", use = "text_edit" },
+  { name = "*.json", use = "text_edit" },
+  { name = "*.yaml", use = "text_edit" },
+  { name = "*.yml", use = "text_edit" }
+]

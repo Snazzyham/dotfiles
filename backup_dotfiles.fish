@@ -64,7 +64,8 @@ set dotfiles \
     "$HOME/.config/themes" \
     "$HOME/.config/theme-apply.fish" \
     "$HOME/.config/gtk-3.0" \
-    "$HOME/.config/gtk-4.0"
+    "$HOME/.config/gtk-4.0" \
+    "$HOME/.config/yazi"
 
 # Function to backup a single file/directory
 function backup_file

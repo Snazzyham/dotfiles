@@ -56,7 +56,8 @@ set dotfiles \
     "$HOME/.config/themes" \
     "$HOME/.config/theme-apply.fish" \
     "$HOME/.config/gtk-3.0" \
-    "$HOME/.config/gtk-4.0"
+    "$HOME/.config/gtk-4.0" \
+    "$HOME/.config/yazi"
 
 # Function to restore a single file/directory
 function restore_file

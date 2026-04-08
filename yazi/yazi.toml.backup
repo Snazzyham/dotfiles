@@ -1,0 +1,42 @@
+[manager]
+show_hidden = true
+sort_by = "mtime"
+
+[opener]
+# ─── Images ─────────────────────────────────────────────
+image_view = [
+  { run = 'feh "$@"', orphan = true, desc = "View Image (feh)" }
+]
+image_edit = [
+  { run = 'pinta "$@"', orphan = true, desc = "Edit Image (Pinta)" }
+]
+# ─── Video / Audio ──────────────────────────────────────
+media_view = [
+  { run = 'mpv "$@"', orphan = true, desc = "Play Media (mpv)" }
+]
+# ─── Text ───────────────────────────────────────────────
+text_edit = [
+  { run = 'nvim "$@"', block = true, desc = "Edit Text (Neovim)" }
+]
+text_view = [
+  { run = 'bat --paging=always "$@"', block = true, desc = "View Text (bat)" },
+  { run = 'less "$@"', block = true }
+]
+
+# ─── ADD THIS SECTION ───────────────────────────────────
+[open]
+# Images
+rules = [
+  { mime = "image/*", use = "image_view" },
+  
+  # Videos
+  { mime = "video/*", use = "media_view" },
+  
+  # Audio
+  { mime = "audio/*", use = "media_view" },
+    
+  # Text files
+  { mime = "text/*", use = "text_edit" },
+  { mime = "application/json", use = "text_edit" },
+  { mime = "application/x-yaml", use = "text_edit" },
+]

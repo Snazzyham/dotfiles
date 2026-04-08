@@ -1,4 +1,4 @@
-palette="gruvbox-dark-hard"
+palette="night-owl"
 
 ## FIRST LINE/ROW: Info & Status
 # First param ─┌
@@ -473,3 +473,42 @@ color_5 = "#2a2a37"
 color_6 = "#7fb4ca"
 color_7 = "#dcd7ba"
 cambridgeblue = "#7fb4ca"
+
+[palettes.github-light]
+color_fg = "#24292F"
+color_bg = "#FFFFFF"
+color_0 = "#FFFFFF"
+color_1 = "#F6F8FA"
+color_2 = "#6E7781"
+color_3 = "#0969DA"
+color_4 = "#24292F"
+color_5 = "#F6F8FA"
+color_6 = "#0969DA"
+color_7 = "#24292F"
+cambridgeblue = "#0969DA"
+
+[palettes.gruvbox-light]
+color_fg = "#3C3836"
+color_bg = "#FBF1C7"
+color_0 = "#FBF1C7"
+color_1 = "#F2E5BC"
+color_2 = "#7C6F64"
+color_3 = "#458588"
+color_4 = "#3C3836"
+color_5 = "#F2E5BC"
+color_6 = "#458588"
+color_7 = "#3C3836"
+cambridgeblue = "#458588"
+
+[palettes.night-owl]
+color_fg = "#d6deeb"
+color_bg = "#011627"
+color_0 = "#011627"
+color_1 = "#1d3b53"
+color_2 = "#7e57c2"
+color_3 = "#82aaff"
+color_4 = "#d6deeb"
+color_5 = "#1d3b53"
+color_6 = "#82aaff"
+color_7 = "#d6deeb"
+cambridgeblue = "#82aaff"

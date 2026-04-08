@@ -2,7 +2,11 @@
 # VERSION: 3.0
 SETUVAR --export LANG:en\x2eUS\x2eUTF\x2d8
 SETUVAR --export LC_ALL:en_US\x2eUTF\x2d8
+SETUVAR ZO_CMD:zo
+SETUVAR Z_CMD:z
+SETUVAR Z_DATA:/home/soham/\x2elocal/share/z/data
 SETUVAR Z_DATA_DIR:/home/soham/\x2elocal/share/z
+SETUVAR Z_EXCLUDE:\x5e/home/soham\x24
 SETUVAR __fish_initialized:4300
 SETUVAR __garuda_garuda_update_ignore:true
 SETUVAR _fisher_jorgebucaran_2F_fisher_files:\x7e/\x2econfig/fish/functions/fisher\x2efish\x1e\x7e/\x2econfig/fish/completions/fisher\x2efish
