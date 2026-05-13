@@ -1,1 +1,19 @@
-extends svelte
+extends javascript
+
+snippet c "class"
+class="${1}"
+endsnippet
+
+snippet fm "Astro frontmatter"
+---
+${1}
+---
+endsnippet
+
+snippet gsp "getStaticPaths"
+export async function getStaticPaths() {
+	return [
+		{ params: { ${1:slug}: "${2}" } },
+	];
+}
+endsnippet

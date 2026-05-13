@@ -1,1 +1,37 @@
 extends javascript
+
+snippet cn "className"
+className="${1}"
+endsnippet
+
+snippet us "useState"
+const [${1}, set${2}] = useState(${3});
+endsnippet
+
+snippet ue "useEffect"
+useEffect(() => {
+	${1}
+}, [${2}]);
+endsnippet
+
+snippet uc "useCallback"
+const ${1} = useCallback((${2}) => {
+	${3}
+}, [${4}]);
+endsnippet
+
+snippet um "useMemo"
+const ${1} = useMemo(() => ${2}, [${3}]);
+endsnippet
+
+snippet ur "useRef"
+const ${1}Ref = useRef(${2:null});
+endsnippet
+
+snippet rfc "react function component"
+export default function ${1:Component}(${2:props}) {
+	return (
+		${3:<div></div>}
+	);
+}
+endsnippet

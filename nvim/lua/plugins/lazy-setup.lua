@@ -43,16 +43,23 @@ require("lazy").setup({
     end,
   },
 
-  -- Treesitter
+  -- Treesitter (main branch — master is archived)
   {
     "nvim-treesitter/nvim-treesitter",
+    branch = "main",
     build = ":TSUpdate",
+    lazy = false,
     config = function()
       require("plugins.treesitter")
     end,
   },
   { "JoosepAlviste/nvim-ts-context-commentstring" },
-  { "windwp/nvim-ts-autotag" },
+  {
+    "windwp/nvim-ts-autotag",
+    config = function()
+      require("nvim-ts-autotag").setup({})
+    end,
+  },
 
   -- Git
   { "f-person/git-blame.nvim" },

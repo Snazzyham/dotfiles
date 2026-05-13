@@ -24,7 +24,6 @@ require("mason-lspconfig").setup({
 		"svelte",
 		"astro",
 		"tailwindcss",
-		"emmet_ls",
 	},
 	automatic_installation = true,
 })
@@ -141,9 +140,20 @@ vim.lsp.config("html", base_opts())
 vim.lsp.config("cssls", base_opts())
 vim.lsp.config("jsonls", base_opts())
 vim.lsp.config("svelte", base_opts())
-vim.lsp.config("astro", base_opts())
+vim.lsp.config("astro", base_opts({
+	cmd_env = (function()
+		local ok, out = pcall(vim.fn.system, "pnpm root -g")
+		if not ok then
+			return {}
+		end
+		out = vim.fn.trim(out or "")
+		if out == "" then
+			return {}
+		end
+		return { NODE_PATH = out }
+	end)(),
+}))
 vim.lsp.config("tailwindcss", base_opts())
-vim.lsp.config("emmet_ls", base_opts())
 
 -- enable them (lazy start by filetype)
 for _, name in ipairs({
@@ -156,7 +166,6 @@ for _, name in ipairs({
 	"svelte",
 	"astro",
 	"tailwindcss",
-	"emmet_ls",
 }) do
 	vim.lsp.enable(name)
 end

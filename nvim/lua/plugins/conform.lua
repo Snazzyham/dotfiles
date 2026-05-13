@@ -10,6 +10,18 @@ require("conform").setup({
     go = { "gofmt" },
     astro = { "prettier" }
   },
+  formatters = {
+    prettier = {
+      args = function(ctx)
+        local args = { "--stdin-filepath", "$FILENAME" }
+        if ctx.filename and ctx.filename:match("%.astro$") then
+          table.insert(args, "--parser")
+          table.insert(args, "astro")
+        end
+        return args
+      end,
+    },
+  },
   format_on_save = {
     timeout_ms = 500,
     lsp_fallback = false

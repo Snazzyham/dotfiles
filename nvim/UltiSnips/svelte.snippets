@@ -1,1 +1,31 @@
 extends javascript
+
+snippet c "class"
+class="${1}"
+endsnippet
+
+snippet st "Svelte 5 $state"
+let ${1} = $state(${2});
+endsnippet
+
+snippet dv "Svelte 5 $derived"
+let ${1} = $derived(${2});
+endsnippet
+
+snippet ef "Svelte 5 $effect"
+$effect(() => {
+	${1}
+});
+endsnippet
+
+snippet pr "Svelte 5 $props"
+let { ${1} } = $props();
+endsnippet
+
+snippet om "onMount"
+import { onMount } from "svelte";
+
+onMount(() => {
+	${1}
+});
+endsnippet
