@@ -4,7 +4,7 @@
     "height": 24,
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-center": ["mpris"],
-    "modules-right": ["custom/bluetooth", "custom/docker", "tray", "cpu", "custom/memory", "custom/audio-output", "pulseaudio", "clock"],
+    "modules-right": ["tray", "custom/bluetooth", "network", "cpu", "custom/memory", "backlight", "pulseaudio", "battery", "clock"],
 
     "hyprland/window": {
         "max-length": 50,
@@ -32,21 +32,16 @@
         "max-length": 40
     },
 
-
-    "custom/bluetooth": {
-        "exec": "~/.config/waybar/scripts/bt.sh",
-        "return-type": "json",
-        "interval": 5,
-        "on-click": "blueman-manager"
-    },
-
     "clock": {
         "format": "{:%H:%M  %a %b %d}"
     },
 
     "pulseaudio": {
-        "format": " {volume}%",
-        "format-muted": "󰝟 muted",
+        "format": "󰕾 {volume}%",
+        "format-muted": "󰖁 muted",
+        "format-icons": {
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
         "on-click": "pavucontrol"
     },
 
@@ -62,20 +57,43 @@
     },
 
     "cpu": {
-        "format": " {usage}%",
+        "format": " {usage}%",
         "interval": 5
     },
 
-    "custom/docker": {
-        "exec": "~/.config/waybar/scripts/docker.sh",
+    "custom/bluetooth": {
+        "exec": "~/.config/waybar/scripts/bt.sh",
+        "interval": 5,
         "return-type": "json",
-        "interval": 30
+        "on-click": "blueman-manager"
     },
 
-    "custom/audio-output": {
-        "exec": "~/.config/waybar/scripts/audio-output.sh",
-        "return-type": "json",
-        "interval": 3,
-        "on-click": "~/.config/waybar/scripts/audio-output.sh --toggle"
+    "network": {
+        "interface": "wlan0",
+        "format-wifi": "󰤨 {essid}",
+        "format-disconnected": "󰤭 Off",
+        "format-ethernet": "󰈀 {ipaddr}",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+        "on-click": "~/.config/waybar/scripts/wifi_details.sh"
+    },
+
+    "battery": {
+        "interval": 30,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "󰚥 {capacity}%",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    },
+
+    "backlight": {
+        "device": "amdgpu_bl1",
+        "format": "󰃟 {percent}%",
+        "format-icons": ["󰃞", "󰃟", "󰃠"],
+        "on-scroll-up": "brightnessctl set 5%+",
+        "on-scroll-down": "brightnessctl set 5%-"
     }
 }
